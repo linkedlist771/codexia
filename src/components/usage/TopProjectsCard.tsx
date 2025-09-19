@@ -10,7 +10,7 @@ interface TopProjectsCardProps {
 
 export function TopProjectsCard({ usageData, formatCurrency, formatTokens }: TopProjectsCardProps) {
   return (
-    <Card className="bg-slate-950/50 border-slate-800/50">
+    <Card className="bg-card border-border">
       <CardHeader>
         <CardTitle className="text-slate-100">热门项目</CardTitle>
       </CardHeader>
@@ -20,7 +20,7 @@ export function TopProjectsCard({ usageData, formatCurrency, formatTokens }: Top
             .sort((a, b) => b[1].cost - a[1].cost)
             .slice(0, 5)
             .map(([project, data]) => (
-              <div key={project} className="flex items-center justify-between p-3 border border-slate-800/50 bg-slate-900/50 rounded">
+              <div key={project} className="flex items-center justify-between p-3 border border-border bg-muted/30 rounded">
                 <div>
                   <p className="font-medium text-slate-200">{project}</p>
                   <p className="text-sm text-slate-400">

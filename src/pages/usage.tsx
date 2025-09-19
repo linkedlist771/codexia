@@ -100,7 +100,7 @@ export default function UsagePage() {
 
 
   return (
-    <div className="p-6 space-y-6 bg-slate-900 min-h-screen">
+    <div className="p-6 space-y-6 bg-background min-h-screen">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
@@ -146,7 +146,7 @@ export default function UsagePage() {
 
       {/* Detailed Views */}
       <Tabs defaultValue="overview" className="space-y-4">
-        <TabsList className="bg-slate-950/50 border-slate-800">
+        <TabsList className="bg-card border-border">
           <TabsTrigger value="overview" className="data-[state=active]:bg-slate-800 data-[state=active]:text-slate-100 text-slate-400">总览</TabsTrigger>
           <TabsTrigger value="models" className="data-[state=active]:bg-slate-800 data-[state=active]:text-slate-100 text-slate-400">按模型</TabsTrigger>
           <TabsTrigger value="projects" className="data-[state=active]:bg-slate-800 data-[state=active]:text-slate-100 text-slate-400">按项目</TabsTrigger>

@@ -20,7 +20,7 @@ export function TimelineChart({ usageData, formatCurrency, formatTokens }: Timel
   const timelineChartData = usageData.timelineData.slice(-30);
 
   return (
-    <Card className="bg-slate-950/50 border-slate-800/50">
+    <Card className="bg-card border-border">
       <CardHeader>
         <CardTitle className="text-slate-100">用量时间线（最近 30 天）</CardTitle>
       </CardHeader>

@@ -33,7 +33,7 @@ import supabase from "@/lib/supabase";
 
 export function AppHeader() {
   const { showFileTree, toggleFileTree, toggleChatPane } = useLayoutStore();
-  const { theme, toggleTheme, accent, setAccent } = useThemeStore();
+  const { theme, toggleTheme, accent, setAccent, palette, setPalette } = useThemeStore();
   const { logoSettings } = useSettingsStore();
   const [codexVersion, setCodexVersion] = useState<string>("");
   const [isCodexAvailable, setIsCodexAvailable] = useState<boolean>(false);
@@ -139,6 +139,14 @@ export function AppHeader() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
+            <DropdownMenuLabel>预设风格</DropdownMenuLabel>
+            <DropdownMenuRadioGroup value={palette} onValueChange={(val) => setPalette(val as any)}>
+              <DropdownMenuRadioItem value="dark">深色</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="gray">灰色</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="light">浅色</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="pink">粉色</DropdownMenuRadioItem>
+            </DropdownMenuRadioGroup>
+            <DropdownMenuSeparator />
             <DropdownMenuLabel>强调色</DropdownMenuLabel>
             <DropdownMenuRadioGroup value={accent} onValueChange={(val) => setAccent(val as Accent)}>
               <DropdownMenuRadioItem value="pink">
@@ -164,6 +172,11 @@ export function AppHeader() {
               <DropdownMenuRadioItem value="orange">
                 <span className="inline-flex items-center gap-2">
                   <span className="inline-block size-3 rounded-full bg-orange-500" /> 橙色
+                </span>
+              </DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="gray">
+                <span className="inline-flex items-center gap-2">
+                  <span className="inline-block size-3 rounded-full bg-neutral-500" /> 灰色
                 </span>
               </DropdownMenuRadioItem>
             </DropdownMenuRadioGroup>

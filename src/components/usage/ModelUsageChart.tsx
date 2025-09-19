@@ -25,7 +25,7 @@ export function ModelUsageChart({ usageData, formatCurrency, formatTokens }: Mod
   }));
 
   return (
-    <Card className="bg-slate-950/50 border-slate-800/50">
+    <Card className="bg-card border-border">
       <CardHeader>
         <CardTitle className="text-slate-100">按模型统计</CardTitle>
       </CardHeader>

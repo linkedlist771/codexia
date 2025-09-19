@@ -28,7 +28,7 @@ export function ProjectUsageChart({ usageData, formatCurrency, formatTokens }: P
     }));
 
   return (
-    <Card className="bg-slate-950/50 border-slate-800/50">
+    <Card className="bg-card border-border">
       <CardHeader>
         <CardTitle className="text-slate-100">按项目统计</CardTitle>
       </CardHeader>

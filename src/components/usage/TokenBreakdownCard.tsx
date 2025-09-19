@@ -9,7 +9,7 @@ interface TokenBreakdownCardProps {
 
 export function TokenBreakdownCard({ usageData, formatTokens }: TokenBreakdownCardProps) {
   return (
-    <Card className="bg-slate-950/50 border-slate-800/50">
+    <Card className="bg-card border-border">
       <CardHeader>
         <CardTitle className="text-slate-100">Token 构成</CardTitle>
       </CardHeader>

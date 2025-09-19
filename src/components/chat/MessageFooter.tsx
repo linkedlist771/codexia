@@ -45,9 +45,11 @@ export const MessageFooter = ({
   };
 
   return (
-    <div className="flex items-center justify-between border-t border-border/30 hidden group-hover:flex transition-opacity">
-      <div className="flex items-center gap-2">
-        <span className="text-xs text-muted-foreground">
+    <div
+      className="absolute top-1 right-1 z-10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+    >
+      <div className="inline-flex items-center gap-1 text-[11px] bg-background/90 backdrop-blur-sm rounded-md border border-border/40 px-1.5 py-0.5 shadow-sm pointer-events-auto">
+        <span className="text-[10px] text-muted-foreground">
           {formatTime(timestamp)}
         </span>
         {messageType && (
@@ -60,45 +62,44 @@ export const MessageFooter = ({
             {eventType}
           </span>
         )}
-      </div>
-      
-      <div className="flex items-center gap-1">
-        {messageRole === 'user' && onEdit && (
-          <button
-            onClick={onEdit}
-            className="p-1 hover:bg-accent rounded transition-colors"
-            title="编辑此消息并从这里重新发送"
-          >
-            <Pencil className="w-4 h-4 text-muted-foreground" />
-          </button>
-        )}
-        {messageRole === 'assistant' && onFork && (
-          <button
-            onClick={onFork}
-            className="p-1 hover:bg-accent rounded transition-colors"
-            title="从此消息分叉新会话"
-          >
-            <GitFork className="w-4 h-4 text-muted-foreground" />
-          </button>
-        )}
-        <button
-          onClick={handleCopy}
-          className="p-1 hover:bg-accent rounded transition-colors"
-          title={copied ? "已复制！" : "复制消息"}
-        >
-          {copied ? (
-            <Check className="w-4 h-4 text-green-600" />
-          ) : (
-            <Copy className="w-4 h-4 text-muted-foreground" />
+        <div className="flex items-center gap-0.5 ml-1">
+          {messageRole === 'user' && onEdit && (
+            <button
+              onClick={onEdit}
+              className="p-1 hover:bg-accent rounded transition-colors"
+              title="编辑此消息并从这里重新发送"
+            >
+              <Pencil className="w-4 h-4 text-muted-foreground" />
+            </button>
           )}
-        </button>
-        <MessageNoteActions
-          messageId={messageId}
-          messageContent={messageContent}
-          messageRole={messageRole}
-          timestamp={timestamp}
-          selectedText={selectedText}
-        />
+          {messageRole === 'assistant' && onFork && (
+            <button
+              onClick={onFork}
+              className="p-1 hover:bg-accent rounded transition-colors"
+              title="从此消息分叉新会话"
+            >
+              <GitFork className="w-4 h-4 text-muted-foreground" />
+            </button>
+          )}
+          <button
+            onClick={handleCopy}
+            className="p-1 hover:bg-accent rounded transition-colors"
+            title={copied ? "已复制！" : "复制消息"}
+          >
+            {copied ? (
+              <Check className="w-4 h-4 text-green-600" />
+            ) : (
+              <Copy className="w-4 h-4 text-muted-foreground" />
+            )}
+          </button>
+          <MessageNoteActions
+            messageId={messageId}
+            messageContent={messageContent}
+            messageRole={messageRole}
+            timestamp={timestamp}
+            selectedText={selectedText}
+          />
+        </div>
       </div>
     </div>
   );

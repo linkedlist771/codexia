@@ -189,34 +189,18 @@ export const Message = memo<MessageProps>(({
                       selectedText={selectedText}
                       onApproval={onApproval}
                     />
-                    
-                    <MessageFooter
-                      messageId={normalized.id}
-                      messageContent={normalized.content}
-                      messageRole={normalized.role}
-                      timestamp={normalized.timestamp}
-                      messageType={normalized.messageType}
-                      eventType={normalized.eventType}
-                      selectedText={selectedText}
-                      onFork={handleFork}
-                      onEdit={handleEditResend}
-                    />
                   </CollapsibleContent>
-                </Collapsible>
-              ) : (
-                <>
-                  <MessageRouter 
-                    message={normalized}
-                    selectedText={selectedText}
-                    onApproval={onApproval}
-                  />
-                </>
-              )}
-            </div>
-          </div>
-          
-          {/* MessageFooter outside content container when not collapsed */}
-          {!shouldBeCollapsible && (
+              </Collapsible>
+            ) : (
+              <>
+                <MessageRouter 
+                  message={normalized}
+                  selectedText={selectedText}
+                  onApproval={onApproval}
+                />
+              </>
+            )}
+            {/* Overlay footer: float on hover without affecting layout */}
             <MessageFooter
               messageId={normalized.id}
               messageContent={normalized.content}
@@ -228,9 +212,10 @@ export const Message = memo<MessageProps>(({
               onFork={handleFork}
               onEdit={handleEditResend}
             />
-          )}
+          </div>
         </div>
-      }
-    </div>
-  );
+      </div>
+    }
+  </div>
+);
 });

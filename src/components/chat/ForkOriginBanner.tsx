@@ -25,21 +25,20 @@ export const ForkOriginBanner: React.FC<ForkOriginBannerProps> = ({
     <div className="px-2 pt-2">
       <div className="flex items-center justify-between border rounded-md px-3 py-2 bg-muted/40">
         <div className="text-sm text-muted-foreground truncate">
-          Forked from <span className="font-mono text-foreground/80">{fromConversationId}</span>
+          来源会话 <span className="font-mono text-foreground/80">{fromConversationId}</span>
           {parentMessageId ? (
-            <span className="text-muted-foreground/80"> at message {parentMessageId}</span>
+            <span className="text-muted-foreground/80">，消息 {parentMessageId}</span>
           ) : null}
         </div>
         <button
           className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md border bg-background hover:bg-accent hover:text-accent-foreground transition-colors"
           onClick={handleJump}
-          title="Go to source conversation"
+          title="跳转到来源会话"
         >
           <CornerUpLeft className="w-3.5 h-3.5" />
-          View source
+          查看来源
         </button>
       </div>
     </div>
   );
 };
-

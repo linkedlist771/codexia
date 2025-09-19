@@ -194,7 +194,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
                 const errorMessage = {
                   id: `${sessionId}-auto-start-error-${generateUniqueId()}`,
                   role: "system" as const,
-                  content: `Failed to start Codex session: ${error}`,
+                  content: `启动 Codex 会话失败：${error}`,
                   timestamp: Date.now(),
                 };
                 addMessage(sessionId, errorMessage);
@@ -292,7 +292,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
         setIsConnected(true);
 
         if (isPendingSession) {
-          createConversation("New Chat", actualSessionId);
+          createConversation("新聊天", actualSessionId);
           setCurrentConversation(actualSessionId);
           setActiveSessionId(actualSessionId);
           setTempSessionId(null);
@@ -307,7 +307,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
       const errorMessage = {
         id: `${actualSessionId}-startup-error-${generateUniqueId()}`,
         role: "system" as const,
-        content: `Failed to start Codex session: ${error}`,
+        content: `启动 Codex 会话失败：${error}`,
         timestamp: Date.now(),
       };
       addMessage(actualSessionId, errorMessage);
@@ -375,7 +375,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
       const errorMessage = {
         id: `${actualSessionId}-send-error-${generateUniqueId()}`,
         role: "system" as const,
-        content: `Failed to send message: ${error}`,
+        content: `发送消息失败：${error}`,
         timestamp: Date.now(),
       };
       addMessage(actualSessionId, errorMessage);
@@ -437,7 +437,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
       const errorMessage = {
         id: `${sessionId}-approval-error-${generateUniqueId()}`,
         role: "system" as const,
-        content: `Failed to process approval: ${error}`,
+        content: `处理审批失败：${error}`,
         timestamp: Date.now(),
       };
       addMessage(sessionId, errorMessage);
@@ -470,7 +470,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
           onStopStreaming={handleStopStreaming}
           disabled={!!selectedConversation && !selectedConversation.filePath}
           isLoading={isLoading}
-          placeholderOverride={editingTarget ? 'Editing message and resending from here' : undefined}
+          placeholderOverride={editingTarget ? '正在编辑此消息，并从这里重新发送' : undefined}
         />
         
         <div className="flex px-2 pt-0.5">

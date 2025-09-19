@@ -65,7 +65,7 @@ const getPreviewText = (normalized: ChatMessage) => {
   const content = normalized.content;
   
   if (normalized.messageType === 'plan_update') {
-    return 'Todos'
+    return '待办'
   }
   
   // Reasoning content
@@ -74,7 +74,7 @@ const getPreviewText = (normalized: ChatMessage) => {
     if (firstLine.length > 50) {
       return `🧠 ${firstLine.substring(0, 50)}...`;
     }
-    return `🧠 ${firstLine || 'AI Reasoning'}`;
+    return `🧠 ${firstLine || 'AI 思考'}`;
   }
   
   // Fallback for content without titles
@@ -82,7 +82,7 @@ const getPreviewText = (normalized: ChatMessage) => {
     return content.substring(0, 100) + '...';
   }
   
-  return content || 'Message';
+  return content || '消息';
 };
 
 export const Message = memo<MessageProps>(({ 
@@ -167,7 +167,7 @@ export const Message = memo<MessageProps>(({
               {/* Inline Thinking (grouped reasoning) */}
               {inlineReasoningContent && normalized.role === 'assistant' && (
                 <div className="mb-2">
-                  <div className="text-[10px] uppercase tracking-wide text-muted-foreground pb-1">Thinking</div>
+                  <div className="text-[10px] uppercase tracking-wide text-muted-foreground pb-1">思考</div>
                   <ReasoningDisplay content={inlineReasoningContent} isStreaming={false} />
                 </div>
               )}

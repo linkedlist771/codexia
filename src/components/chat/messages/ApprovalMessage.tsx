@@ -34,9 +34,9 @@ export const ApprovalMessage: React.FC<ApprovalMessageProps> = ({
           ) : approvalRequest.type === 'apply_patch' ? (
             <div>
               {approvalRequest.reason && (
-                <p className="text-xs text-yellow-700 dark:text-yellow-300 mb-1">Reason: {approvalRequest.reason}</p>
+                <p className="text-xs text-yellow-700 dark:text-yellow-300 mb-1">原因：{approvalRequest.reason}</p>
               )}
-              <p className="text-sm text-yellow-700 dark:text-yellow-300 px-1">Edit:</p>
+              <p className="text-sm text-yellow-700 dark:text-yellow-300 px-1">编辑内容：</p>
               <div className="bg-yellow-100 dark:bg-yellow-800/30 p-2 rounded text-sm max-h-80 overflow-y-auto space-y-3">
                 {approvalRequest.changes ? (
                   typeof approvalRequest.changes === 'string' ? (
@@ -70,13 +70,13 @@ export const ApprovalMessage: React.FC<ApprovalMessageProps> = ({
                     })
                   )
                 ) : (
-                  <span className="text-yellow-600 dark:text-yellow-400">No change details available</span>
+                  <span className="text-yellow-600 dark:text-yellow-400">暂无变更详情</span>
                 )}
               </div>
             </div>
           ) : (
             <div>
-              <p className="text-sm text-yellow-700 dark:text-yellow-300 mb-1">Files to be modified:</p>
+              <p className="text-sm text-yellow-700 dark:text-yellow-300 mb-1">将要修改的文件：</p>
               <ul className="list-disc list-inside text-sm text-yellow-600 dark:text-yellow-400">
                 {approvalRequest.files?.map((file, idx) => (
                   <li key={idx}>{file}</li>
@@ -101,13 +101,13 @@ export const ApprovalMessage: React.FC<ApprovalMessageProps> = ({
                   variant="destructive"
                   onClick={() => handleApproval(false)}
                 >
-                  Deny
+                  拒绝
                 </Button>
                 <Button
                   size="sm"
                   onClick={() => handleApproval(true)}
                 >
-                  Approve
+                  允许
                 </Button>
               </>
             )}

@@ -47,23 +47,23 @@ export function MessageList({
   // Four feature cards based on README.md
   const features = [
     {
-      title: 'Multi-Session',
-      description: 'Run multiple sessions with persistent restoration.',
+      title: '多会话',
+      description: '支持多会话运行，并可持久恢复。',
       icon: Layers,
     },
     {
-      title: 'Streaming',
-      description: 'Live responses as they generate for instant feedback.',
+      title: '流式输出',
+      description: '生成过程中实时响应，反馈更迅速。',
       icon: Zap,
     },
     {
-      title: 'Configuration',
-      description: 'Providers, models, sandbox modes, approvals, and more.',
+      title: '可配置',
+      description: '提供商、模型、沙盒模式、审批策略等。',
       icon: SlidersHorizontal,
     },
     {
-      title: 'Polished UX',
-      description: 'Notepad, Markdown, Plan/Todo, Themes, WebPreview.',
+      title: '精致体验',
+      description: '便笺、Markdown、计划/待办、主题、网页预览。',
       icon: LayoutDashboard,
     },
   ] as const;
@@ -175,9 +175,9 @@ export function MessageList({
     return (
       <div className={`flex-1 min-h-0 flex items-center justify-center ${className}`}>
         <div className="text-center flex flex-col space-y-6 max-w-3xl px-4 w-full">
-          <h2 className="text-2xl font-semibold">Welcome to Codexia</h2>
+          <h2 className="text-2xl font-semibold">欢迎使用 Codexia</h2>
           <p className="text-sm text-muted-foreground">
-            Powerful GUI/IDE for Codex CLI — start by sending your first message.
+            Codex CLI 的强大图形界面/IDE —— 先发一条消息试试吧。
           </p>
           <div className="grid grid-cols-2 gap-4 text-left">
             {features.map((f, i) => {
@@ -268,14 +268,14 @@ export function MessageList({
           <button
             onClick={jumpToTop}
             className="bg-white border border-gray-200 rounded-full p-2 shadow-md hover:bg-gray-50 transition-colors"
-            title="jumpToTop"
+            title="回到顶部"
           >
             <ChevronUp className="w-4 h-4 text-gray-600" />
           </button>
           <button
             onClick={jumpToBottom}
             className="bg-white border border-gray-200 rounded-full p-2 shadow-md hover:bg-gray-50 transition-colors"
-            title="jumpToBottom"
+            title="前往底部"
           >
             <ChevronDown className="w-4 h-4 text-gray-600" />
           </button>

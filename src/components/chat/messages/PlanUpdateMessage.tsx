@@ -40,7 +40,7 @@ export const PlanUpdateMessage: React.FC<PlanUpdateMessageProps> = ({ message })
     return <Circle className="w-4 h-4 text-gray-400" />;
   };
 
-  const leftText = inferredIndex === -1 ? 'Done' : steps[inferredIndex]?.step || '';
+  const leftText = inferredIndex === -1 ? '已完成' : steps[inferredIndex]?.step || '';
   const rightText = inferredIndex === -1 ? `${total}/${total}` : `${inferredIndex + 1}/${total}`;
 
   return (

@@ -72,21 +72,21 @@ export default function LogoSettings() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-semibold mb-2">Logo Settings</h2>
+        <h2 className="text-2xl font-semibold mb-2">Logo 设置</h2>
         <p className="text-muted-foreground">
-          Customize the logo displayed in the application header
+          自定义应用头部显示的 Logo
         </p>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle>Logo Configuration</CardTitle>
+          <CardTitle>Logo 配置</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex space-x-2">
             <Input
               id="window-title"
-              placeholder="Enter window title..."
+              placeholder="请输入窗口标题..."
               value={windowTitle}
               onChange={(e) => setWindowTitle(e.target.value)}
             />
@@ -111,18 +111,18 @@ export default function LogoSettings() {
               checked={logoSettings.useCustomLogo}
               onCheckedChange={handleToggle}
             />
-            <Label htmlFor="use-custom-logo">Use Custom Logo</Label>
+            <Label htmlFor="use-custom-logo">使用自定义 Logo</Label>
           </div>
 
           {logoSettings.useCustomLogo && (
             <div className="space-y-4">
               <div>
-                <Label htmlFor="logo-path">Logo Path</Label>
+                <Label htmlFor="logo-path">Logo 路径</Label>
                 <div className="flex space-x-2 mt-1">
                   <Input
                     id="logo-path"
                     value={logoSettings.customLogoPath}
-                    placeholder="Select a logo file..."
+                    placeholder="选择一个 Logo 文件..."
                     readOnly
                   />
                   <Button
@@ -131,22 +131,22 @@ export default function LogoSettings() {
                     variant="outline"
                   >
                     <Upload className="w-4 h-4 mr-2" />
-                    {uploading ? "Uploading..." : "Browse"}
+                    {uploading ? "正在上传..." : "浏览"}
                   </Button>
                 </div>
               </div>
 
               {logoSettings.customLogoPath && (
                 <div className="space-y-2">
-                  <Label>Logo Preview</Label>
+                  <Label>Logo 预览</Label>
                   <div className="flex items-center space-x-4">
                     <img
                       src={logoSettings.customLogoPath}
-                      alt="Custom Logo Preview"
+                      alt="自定义 Logo 预览"
                       className="h-8 w-auto object-contain border rounded"
                     />
                     <Button onClick={clearLogo} variant="destructive" size="sm">
-                      Remove Logo
+                      移除 Logo
                     </Button>
                   </div>
                 </div>

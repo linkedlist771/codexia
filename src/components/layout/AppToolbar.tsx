@@ -104,7 +104,7 @@ export const AppToolbar: React.FC<AppToolbarProps> = ({
       size="icon"
       className="h-7 w-7 shrink-0"
       onClick={handleToggleLeftPanel}
-      title="Toggle Panel"
+      title="切换面板"
     >
       <History />
     </Button>
@@ -121,7 +121,7 @@ export const AppToolbar: React.FC<AppToolbarProps> = ({
             variant="ghost"
             size="icon"
             className="h-7 w-7 p-0"
-            title="Create New Conversation"
+            title="新建会话"
           >
             <PencilIcon />
           </Button>
@@ -134,7 +134,7 @@ export const AppToolbar: React.FC<AppToolbarProps> = ({
             size="icon"
             onClick={handleToggleWebPreview}
             className={`h-7 w-7 shrink-0 ${showWebPreview ? 'bg-accent' : ''}`}
-            title="Toggle Web Preview"
+            title="切换网页预览"
           >
             <Globe />
           </Button>
@@ -145,7 +145,7 @@ export const AppToolbar: React.FC<AppToolbarProps> = ({
             size="icon"
             onClick={onOpenConfig}
             className="h-7 w-7 shrink-0"
-            title="Configuration Settings"
+            title="配置设置"
           >
             <Settings />
           </Button>
@@ -158,7 +158,7 @@ export const AppToolbar: React.FC<AppToolbarProps> = ({
             onClick={handleCreateNote}
             size="icon"
             className="h-7 w-7 p-0"
-            title="Create New Note"
+            title="新建便笺"
           >
             <PencilIcon className="h-3 w-3" />
           </Button>

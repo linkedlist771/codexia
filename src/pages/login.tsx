@@ -27,9 +27,9 @@ export default function AuthPage() {
     // Auth is forced but not configured: show guidance only.
     return (
       <div className="flex flex-col items-center justify-center h-screen px-4 text-center">
-        <h1 className="text-3xl font-bold mb-4">Welcome to {windowTitle}</h1>
+        <h1 className="text-3xl font-bold mb-4">欢迎使用 {windowTitle}</h1>
         <p className="mb-6 text-gray-500 dark:text-gray-400">
-          Authentication is not configured. Add VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY, and VITE_REDIRECT_URL in your .env.
+          尚未配置认证。请在 .env 中添加 VITE_SUPABASE_URL、VITE_SUPABASE_ANON_KEY 和 VITE_REDIRECT_URL。
         </p>
       </div>
     );
@@ -63,8 +63,8 @@ export default function AuthPage() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen px-4 text-center">
-      <h1 className="text-3xl font-bold mb-4">Welcome to {windowTitle}</h1>
-      <p className="mb-6 text-gray-500 dark:text-gray-400">Sign in to get more</p>
+      <h1 className="text-3xl font-bold mb-4">欢迎使用 {windowTitle}</h1>
+      <p className="mb-6 text-gray-500 dark:text-gray-400">登录以获得更多功能</p>
 
       <div className="w-full max-w-sm">
         <Button
@@ -72,7 +72,7 @@ export default function AuthPage() {
           className="w-full flex items-center justify-center gap-2 mb-4"
         >
           <Github />
-          Continue with GitHub
+          使用 GitHub 登录
         </Button>
         <Button
           onClick={() => handleOAuthLogin("google")}
@@ -80,7 +80,7 @@ export default function AuthPage() {
           variant="outline"
         >
           <span className="text-sm">🔍</span>
-          Continue with Google
+          使用 Google 登录
         </Button>
       </div>
     </div>

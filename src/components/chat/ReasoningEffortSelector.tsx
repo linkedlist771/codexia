@@ -9,10 +9,10 @@ import {
 import { useModelStore } from '@/stores/ModelStore';
 
 const EFFORT_OPTIONS = [
-  { value: 'minimal', label: 'Minimal' },
-  { value: 'low', label: 'Low' },
-  { value: 'medium', label: 'Medium' },
-  { value: 'high', label: 'High' },
+  { value: 'minimal', label: '最低' },
+  { value: 'low', label: '较低' },
+  { value: 'medium', label: '适中' },
+  { value: 'high', label: '较高' },
 ] as const;
 
 export const ReasoningEffortSelector: React.FC = () => {
@@ -59,7 +59,7 @@ export const ReasoningEffortSelector: React.FC = () => {
       <PopoverContent className="w-36 p-2" align="start">
         <div className="space-y-1">
           <div>
-            Reasoning Effort
+            思考强度
           </div>
           {allowedEfforts.map((effort) => (
             <Button

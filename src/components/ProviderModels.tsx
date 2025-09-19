@@ -55,32 +55,32 @@ export default function ProviderModels({ selectedProvider }: ProviderModelsProps
     <Card className="col-span-2">
       <CardContent className="p-4">
         <h2 className="text-lg font-semibold mb-4">
-          {selectedProvider} Models
+          {selectedProvider} 模型
         </h2>
         <div className="mb-4">
-          <label className="block mb-1 font-medium">API Key</label>
+          <label className="block mb-1 font-medium">API 密钥</label>
           <Input
             type="password"
             value={providers[selectedProvider as Provider]?.apiKey || ""}
             onChange={(e) =>
               setProviderApiKey(selectedProvider as Provider, e.target.value)
             }
-            placeholder={`Enter API key for ${selectedProvider}`}
+            placeholder={`请输入 ${selectedProvider} 的 API 密钥`}
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-medium">Base URL</label>
+          <label className="block mb-1 font-medium">基础地址</label>
           <Input
             type="text"
             value={providers[selectedProvider as Provider]?.baseUrl || ""}
             onChange={(e) =>
               setProviderBaseUrl(selectedProvider as Provider, e.target.value)
             }
-            placeholder={`Enter base URL for ${selectedProvider}`}
+            placeholder={`请输入 ${selectedProvider} 的基础地址`}
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-medium">Models</label>
+          <label className="block mb-1 font-medium">模型列表</label>
           <div className="flex gap-2 mb-2">
             <Input
               type="text"
@@ -91,11 +91,11 @@ export default function ProviderModels({ selectedProvider }: ProviderModelsProps
                   handleAddModel();
                 }
               }}
-              placeholder="Add new model"
+              placeholder="添加新模型"
               className="flex-1"
             />
             <Button onClick={handleAddModel}>
-              Add
+              添加
             </Button>
           </div>
           <ul className="list-disc list-inside mb-2">
@@ -118,7 +118,7 @@ export default function ProviderModels({ selectedProvider }: ProviderModelsProps
                       <Button
                         onClick={() => handleEditModel(idx)}
                       >
-                        Save
+                        保存
                       </Button>
                       <Button
                         variant="destructive"
@@ -127,7 +127,7 @@ export default function ProviderModels({ selectedProvider }: ProviderModelsProps
                           setEditingModelValue("");
                         }}
                       >
-                        Cancel
+                        取消
                       </Button>
                     </div>
                   ) : (
@@ -141,14 +141,14 @@ export default function ProviderModels({ selectedProvider }: ProviderModelsProps
                             setEditingModelValue(model);
                           }}
                         >
-                          Edit
+                          编辑
                         </Button>
                         <Button
                           size="sm"
                           variant="destructive"
                           onClick={() => handleDeleteModel(idx)}
                         >
-                          Delete
+                          删除
                         </Button>
                       </div>
                     </>

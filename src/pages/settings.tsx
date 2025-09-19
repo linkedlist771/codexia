@@ -37,8 +37,8 @@ export default function SettingsPage() {
             />
           </div>
         )}
-        {activeSection === "security" && <p>Security Settings</p>}
-        {activeSection === "working" && <p>Working Directory Settings</p>}
+        {activeSection === "security" && <p>安全设置</p>}
+        {activeSection === "working" && <p>工作目录设置</p>}
         {activeSection === "exclude" && <ExcludeFolders />}
         {activeSection === "logo" && <LogoSettings />}
       </div>

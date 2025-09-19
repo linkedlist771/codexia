@@ -269,7 +269,7 @@ export function FileViewer({ filePath, onClose, addToNotepad }: FileViewerProps)
         <div className="flex items-center gap-1">
           {selectedText && (
             <span className={`text-xs mr-2 ${theme === 'dark' ? 'text-primary' : 'text-blue-600'}`}>
-              {selectedText.length} chars selected
+              已选择 {selectedText.length} 个字符
             </span>
           )}
           {isLargeFile && (
@@ -278,7 +278,7 @@ export function FileViewer({ filePath, onClose, addToNotepad }: FileViewerProps)
               size="sm"
               onClick={handleToggleContent}
               className="p-1 h-auto text-xs"
-              title={`${showFullContent ? "Show first 500 lines" : "Show all lines"} (${content.split("\n").length} total)`}
+              title={`${showFullContent ? "仅显示前 500 行" : "显示全部行"}（共 ${content.split("\n").length} 行）`}
             >
               {showFullContent ? "500" : "All"}
             </Button>
@@ -289,7 +289,7 @@ export function FileViewer({ filePath, onClose, addToNotepad }: FileViewerProps)
             onClick={handleToggleViewMode}
             disabled={diffLoading}
             className="p-1 h-auto"
-            title={viewMode === 'code' ? "Show git diff" : "Show code view"}
+            title={viewMode === 'code' ? "显示 Git 差异" : "显示代码视图"}
           >
             {diffLoading ? (
               <div className="w-4 h-4 animate-spin border-2 border-gray-300 border-t-gray-600 rounded-full"></div>
@@ -307,8 +307,8 @@ export function FileViewer({ filePath, onClose, addToNotepad }: FileViewerProps)
             className="p-1 h-auto"
             title={
               selectedText
-                ? "Send selected text to AI"
-                : "Send file content to AI"
+                ? "将所选文本发送到 AI"
+                : "将文件内容发送到 AI"
             }
           >
             <Send className="w-4 h-4" />
@@ -322,8 +322,8 @@ export function FileViewer({ filePath, onClose, addToNotepad }: FileViewerProps)
               className="p-1 h-auto"
               title={
                 selectedText
-                  ? "Add selected text to note"
-                  : "Add file content to note"
+                  ? "将所选文本添加到便笺"
+                  : "将文件内容添加到便笺"
               }
             >
               <FileText className="w-4 h-4" />
@@ -335,7 +335,7 @@ export function FileViewer({ filePath, onClose, addToNotepad }: FileViewerProps)
             onClick={handleCopy}
             disabled={!content || loading}
             className="p-1 h-auto"
-            title={selectedText ? "Copy selected text" : "Copy file content"}
+            title={selectedText ? "复制所选文本" : "复制文件内容"}
           >
             {copied ? (
               <Check className="w-4 h-4 text-green-600" />
@@ -357,7 +357,7 @@ export function FileViewer({ filePath, onClose, addToNotepad }: FileViewerProps)
       <div className="flex-1 overflow-hidden">
         {diskChanged && (
           <div className={`px-3 py-2 text-xs flex items-center justify-between ${theme === 'dark' ? 'bg-amber-950 text-amber-300' : 'bg-amber-50 text-amber-800'}`}>
-            <span>File changed on disk.</span>
+            <span>磁盘上的文件已更改。</span>
             <div className="space-x-2">
               <Button variant="outline" size="sm" className="h-6 px-2" onClick={() => setDiskChanged(false)}>
                 Dismiss
@@ -369,7 +369,7 @@ export function FileViewer({ filePath, onClose, addToNotepad }: FileViewerProps)
           </div>
         )}
         {loading ? (
-          <div className={`p-4 text-center ${theme === 'dark' ? 'text-muted-foreground' : 'text-gray-500'}`}>Loading file...</div>
+          <div className={`p-4 text-center ${theme === 'dark' ? 'text-muted-foreground' : 'text-gray-500'}`}>正在加载文件...</div>
         ) : error ? (
           <div className={`p-4 text-center ${theme === 'dark' ? 'text-destructive' : 'text-red-500'}`}>{error}</div>
         ) : (
@@ -386,8 +386,8 @@ export function FileViewer({ filePath, onClose, addToNotepad }: FileViewerProps)
               ) : (
                 <div className={`p-8 text-center ${theme === 'dark' ? 'text-muted-foreground' : 'text-gray-500'}`}>
                   <GitBranch className={`w-12 h-12 mx-auto mb-4 ${theme === 'dark' ? 'text-muted-foreground/50' : 'text-gray-300'}`} />
-                  <p className="text-lg font-medium mb-2">No changes detected</p>
-                  <p className="text-sm">This file is identical to the version in git HEAD</p>
+                  <p className="text-lg font-medium mb-2">未检测到更改</p>
+                  <p className="text-sm">此文件与 Git HEAD 版本一致</p>
                 </div>
               )
             ) : (
@@ -416,15 +416,14 @@ export function FileViewer({ filePath, onClose, addToNotepad }: FileViewerProps)
                 {isLargeFile && !showFullContent && (
                   <div className={`p-4 text-center border-t ${theme === 'dark' ? 'border-border bg-card' : 'border-gray-200 bg-gray-50'}`}>
                     <p className={`text-sm mb-2 ${theme === 'dark' ? 'text-muted-foreground' : 'text-gray-600'}`}>
-                      Showing first {MAX_LINES} lines of{" "}
-                      {content.split("\n").length} total lines
+                      正在显示前 {MAX_LINES} 行（共 {content.split("\n").length} 行）
                     </p>
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={handleToggleContent}
                     >
-                      Show All Lines
+                      显示全部行
                     </Button>
                   </div>
                 )}

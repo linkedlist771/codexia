@@ -17,16 +17,16 @@ interface TokenDistributionChartProps {
 
 export function TokenDistributionChart({ usageData, formatTokens }: TokenDistributionChartProps) {
   const tokenBreakdownData = [
-    { name: 'Input', value: usageData.inputTokens, color: '#0088FE' },
-    { name: 'Output', value: usageData.outputTokens, color: '#00C49F' },
-    { name: 'Cache Write', value: usageData.cacheWriteTokens, color: '#FFBB28' },
-    { name: 'Cache Read', value: usageData.cacheReadTokens, color: '#FF8042' },
+    { name: '输入', value: usageData.inputTokens, color: '#0088FE' },
+    { name: '输出', value: usageData.outputTokens, color: '#00C49F' },
+    { name: '缓存写入', value: usageData.cacheWriteTokens, color: '#FFBB28' },
+    { name: '缓存读取', value: usageData.cacheReadTokens, color: '#FF8042' },
   ].filter(item => item.value > 0);
 
   return (
     <Card className="bg-slate-950/50 border-slate-800/50">
       <CardHeader>
-        <CardTitle className="text-slate-100">Token Distribution</CardTitle>
+        <CardTitle className="text-slate-100">Token 分布</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">

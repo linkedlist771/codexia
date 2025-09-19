@@ -21,7 +21,7 @@ export function FileTreeHeader({
 }: FileTreeHeaderProps) {
   const [showSearchInput, setShowSearchInput] = useState(false);
   const getCurrentDirectoryName = () => {
-    if (!currentFolder) return "Home";
+    if (!currentFolder) return "主页";
     return currentFolder.split("/").pop() || currentFolder;
   };
 
@@ -32,7 +32,7 @@ export function FileTreeHeader({
           <Folder className="w-4 h-4 text-blue-500" />
           <span
             className="text-sm font-medium text-gray-700 truncate"
-            title={currentFolder || "Home"}
+            title={currentFolder || "主页"}
           >
             {getCurrentDirectoryName()}
           </span>
@@ -44,7 +44,7 @@ export function FileTreeHeader({
             size="icon"
             className="h-6 w-6"
             onClick={onRefresh}
-            title="Refresh directory"
+            title="刷新目录"
           >
             <RefreshCw className="w-3 h-3" />
           </Button>
@@ -61,7 +61,7 @@ export function FileTreeHeader({
 
       {showSearchInput &&
         <Input
-          placeholder="Search files or folders..."
+          placeholder="搜索文件或文件夹..."
           value={filterText}
           onChange={(e) => onFilterTextChange(e.target.value)}
           className="text-sm"

@@ -89,7 +89,7 @@ export function NoteList() {
             )}
           </div>
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">
-            {note.content || "Empty note"}
+            {note.content || "空白便笺"}
           </p>
           <div className="flex items-center justify-between mt-2">
             <span className="text-xs text-gray-400 dark:text-gray-500">
@@ -135,7 +135,7 @@ export function NoteList() {
                   className="text-red-600 hover:text-red-700"
                 >
                   <Trash2 className="h-3 w-3 mr-2" />
-                  Delete
+                  删除
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -152,7 +152,7 @@ export function NoteList() {
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-3 w-3 text-gray-400 dark:text-gray-500" />
           <Input
-            placeholder="Search notes..."
+            placeholder="搜索便笺..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="pl-8 h-8 text-sm"
@@ -163,22 +163,22 @@ export function NoteList() {
       {/* Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="flex flex-col flex-1">
         <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="all">All</TabsTrigger>
-          <TabsTrigger value="favorites">Favorites</TabsTrigger>
+          <TabsTrigger value="all">全部</TabsTrigger>
+          <TabsTrigger value="favorites">收藏</TabsTrigger>
         </TabsList>
         
         <TabsContent value="all" className="flex-1 overflow-y-auto mt-0">
           {filteredNotes.length === 0 ? (
             <div className="p-4 text-center text-gray-500 dark:text-gray-400 text-sm">
               {searchQuery ? (
-                <p>No notes match your search</p>
+                <p>没有匹配的便笺</p>
               ) : notes.length === 0 ? (
                 <>
-                  <p>No notes yet</p>
-                  <p className="text-xs mt-1">Create your first note to get started</p>
+                  <p>还没有便笺</p>
+                  <p className="text-xs mt-1">创建你的第一条便笺开始使用吧</p>
                 </>
               ) : (
-                <p>No notes to display</p>
+                <p>暂无需要显示的便笺</p>
               )}
             </div>
           ) : (
@@ -192,11 +192,11 @@ export function NoteList() {
           {filteredNotes.length === 0 ? (
             <div className="p-4 text-center text-gray-500 dark:text-gray-400 text-sm">
               {searchQuery ? (
-                <p>No favorite notes match your search</p>
+                <p>没有匹配的收藏便笺</p>
               ) : (
                 <>
-                  <p>No favorite notes</p>
-                  <p className="text-xs mt-1">Star some notes to see them here</p>
+                  <p>暂无收藏便笺</p>
+                  <p className="text-xs mt-1">为便笺加星即可在此处看到</p>
                 </>
               )}
             </div>

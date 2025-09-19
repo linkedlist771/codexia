@@ -1,5 +1,5 @@
 export default function DxtPage() {
     return (
-        <div>hi dxt</div>
+        <div>你好 dxt</div>
     )
 }

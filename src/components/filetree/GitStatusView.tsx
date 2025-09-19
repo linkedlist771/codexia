@@ -60,7 +60,7 @@ export function GitStatusView({ currentFolder, onDiffClick }: GitStatusViewProps
 		return (
 			<div className="p-4 text-center text-gray-500 flex items-center justify-center gap-2">
 				<RefreshCw className="w-4 h-4 animate-spin" />
-				Loading git status...
+				正在加载 Git 状态...
 			</div>
 		);
 	}
@@ -77,7 +77,7 @@ export function GitStatusView({ currentFolder, onDiffClick }: GitStatusViewProps
 					className="mt-2"
 				>
 					<RefreshCw className="w-4 h-4 mr-1" />
-					Retry
+					重试
 				</Button>
 			</div>
 		);
@@ -87,7 +87,7 @@ export function GitStatusView({ currentFolder, onDiffClick }: GitStatusViewProps
 		return (
 			<div className="p-4 text-center text-gray-500">
 				<GitBranch className="w-8 h-8 mx-auto mb-2 opacity-50" />
-				<p className="text-sm">Not a git repository</p>
+				<p className="text-sm">不是 Git 仓库</p>
 			</div>
 		);
 	}
@@ -105,7 +105,7 @@ export function GitStatusView({ currentFolder, onDiffClick }: GitStatusViewProps
 		return (
 			<div className="p-4 text-center text-gray-500">
 				<GitBranch className="w-8 h-8 mx-auto mb-2 opacity-50" />
-				<p className="text-sm">Working tree clean</p>
+				<p className="text-sm">工作区干净</p>
 				<Button
 					onClick={() => loadGitStatus()}
 					variant="ghost"
@@ -113,7 +113,7 @@ export function GitStatusView({ currentFolder, onDiffClick }: GitStatusViewProps
 					className="mt-2"
 				>
 					<RefreshCw className="w-4 h-4 mr-1" />
-					Refresh
+					刷新
 				</Button>
 			</div>
 		);
@@ -146,7 +146,7 @@ export function GitStatusView({ currentFolder, onDiffClick }: GitStatusViewProps
 							key={index}
 							className="flex items-center justify-between text-sm py-1 px-2 hover:bg-gray-100 rounded cursor-pointer"
 							onClick={handleClick}
-							title="Click to view diff"
+						title="点击查看差异"
 						>
 							<div className="flex items-center gap-2 flex-1 min-w-0">
 								<FileText className="w-3 h-3 flex-shrink-0" />

@@ -11,30 +11,30 @@ export function TokenBreakdownCard({ usageData, formatTokens }: TokenBreakdownCa
   return (
     <Card className="bg-slate-950/50 border-slate-800/50">
       <CardHeader>
-        <CardTitle className="text-slate-100">Token Breakdown</CardTitle>
+        <CardTitle className="text-slate-100">Token 构成</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
           <div className="flex justify-between items-center">
-            <span className="text-sm text-slate-300">Input Tokens</span>
+            <span className="text-sm text-slate-300">输入 Tokens</span>
             <Badge variant="outline" className="border-emerald-500/50 text-emerald-400">
               {formatTokens(usageData.inputTokens)}
             </Badge>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-sm text-slate-300">Output Tokens</span>
+            <span className="text-sm text-slate-300">输出 Tokens</span>
             <Badge variant="outline" className="border-cyan-500/50 text-cyan-400">
               {formatTokens(usageData.outputTokens)}
             </Badge>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-sm text-slate-300">Cache Write</span>
+            <span className="text-sm text-slate-300">缓存写入</span>
             <Badge variant="outline" className="border-purple-500/50 text-purple-400">
               {formatTokens(usageData.cacheWriteTokens)}
             </Badge>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-sm text-slate-300">Cache Read</span>
+            <span className="text-sm text-slate-300">缓存读取</span>
             <Badge variant="outline" className="border-orange-500/50 text-orange-400">
               {formatTokens(usageData.cacheReadTokens)}
             </Badge>

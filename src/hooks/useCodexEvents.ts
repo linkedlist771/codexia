@@ -29,7 +29,7 @@ export const useCodexEvents = ({
     const conversationExists = conversations.find(conv => conv.id === sessionId);
     if (!conversationExists) {
       console.log(`Creating conversation for session ${sessionId} from event`);
-      createConversation('New Chat', sessionId);
+      createConversation('新聊天', sessionId);
     }
     
     // Convert message format and add to store
@@ -195,7 +195,7 @@ export const useCodexEvents = ({
         
       case 'mcp_tool_call_begin':
         // Only show important tool calls like Read/Edit/Write, skip internal tools
-        const toolName = msg.invocation?.tool || 'Unknown Tool';
+        const toolName = msg.invocation?.tool || '未知工具';
         if (['read', 'edit', 'write', 'glob', 'grep'].some(t => toolName.toLowerCase().includes(t))) {
           const toolCallMessage: ChatMessage = {
             id: `${sessionId}-mcp-${generateUniqueId()}`,
@@ -228,7 +228,7 @@ export const useCodexEvents = ({
           id: `${sessionId}-search-begin-${generateUniqueId()}`,
           role: 'system',
           title: `🔍 ${msg.query}`,
-          content: 'Searching web...',
+          content: '正在进行网页搜索...',
           timestamp: new Date().getTime(),
           eventType: msg.type,
         };
@@ -281,8 +281,8 @@ export const useCodexEvents = ({
         const execMessage: ChatMessage = {
           id: event.id, // Use the original event ID, not a generated one
           role: 'approval',
-          title: `🔧 Execute: ${execApprovalRequest.command}`,
-          content: `Working directory: ${execApprovalRequest.cwd}`,
+          title: `🔧 执行：${execApprovalRequest.command}`,
+          content: `工作目录：${execApprovalRequest.cwd}`,
           timestamp: new Date().getTime(),
           approvalRequest: execApprovalRequest,
           eventType: msg.type,
@@ -302,8 +302,8 @@ export const useCodexEvents = ({
         const patchMessage: ChatMessage = {
           id: event.id, // Use the original event ID, not a generated one
           role: 'approval',
-          title: `📝 Patch: ${msg.files?.join(', ') || 'unknown files'}`,
-          content: `Requesting approval to apply patch`,
+          title: `📝 补丁：${msg.files?.join(', ') || '未知文件'}`,
+          content: `请求批准应用补丁`,
           timestamp: new Date().getTime(),
           approvalRequest: patchApprovalRequest,
           eventType: msg.type,
@@ -329,20 +329,20 @@ export const useCodexEvents = ({
             // Support multiple backend schemas: add/remove/modify, update{unified_diff,move_path}
             if (change.add) {
               const content = change.add.content || change.add.unified_diff || JSON.stringify(change.add, null, 2);
-              return `Add ${file}\n${content}`;
+              return `新增 ${file}\n${content}`;
             }
             if (change.remove) {
               const content = change.remove.content || change.remove.unified_diff || JSON.stringify(change.remove, null, 2);
-              return `Remove ${file}\n${content}`;
+              return `删除 ${file}\n${content}`;
             }
             if (change.modify) {
               const content = change.modify.content || change.modify.unified_diff || JSON.stringify(change.modify, null, 2);
-              return `Modify ${file}\n${content}`;
+              return `修改 ${file}\n${content}`;
             }
             if (change.update) {
-              const mv = change.update.move_path ? `Move to: ${change.update.move_path}\n` : '';
+              const mv = change.update.move_path ? `移动到：${change.update.move_path}\n` : '';
               const diff = change.update.unified_diff || change.update.content || '';
-              return `Update ${file}\n${mv}${diff}`.trim();
+              return `更新 ${file}\n${mv}${diff}`.trim();
             }
             // Fallback: show JSON
             return `${file}\n${JSON.stringify(change, null, 2)}`;
@@ -352,7 +352,7 @@ export const useCodexEvents = ({
         };
 
         // Determine files and build summary
-        let changesText = 'No change details available';
+        let changesText = '暂无变更详情';
         let titleFiles = '';
         if (msg.changes && typeof msg.changes === 'object' && !Array.isArray(msg.changes)) {
           const entries = Object.entries(msg.changes as Record<string, any>);
@@ -377,7 +377,7 @@ export const useCodexEvents = ({
           id: event.id, // Use the original event ID, not a generated one
           role: 'approval',
           title: `🔄 Apply Patch${titleFiles ? `: ${titleFiles}` : ''}`,
-          content: `${(msg as any).reason ? `Reason: ${(msg as any).reason}\n\n` : ''}Changes:\n${changesText}`,
+          content: `${(msg as any).reason ? `原因：${(msg as any).reason}\n\n` : ''}变更如下：\n${changesText}`,
           timestamp: new Date().getTime(),
           approvalRequest: applyPatchApprovalRequest,
           eventType: msg.type,
@@ -466,7 +466,7 @@ export const useCodexEvents = ({
 
             // Build output details when present
             const stdoutBlock = msg.stdout?.trim() ? `\n\`\`\`\n${msg.stdout}\n\`\`\`` : '';
-            const stderrBlock = msg.stderr?.trim() ? `${msg.stdout?.trim() ? '\n\n' : ''}Errors:\n\`\`\`\n${msg.stderr}\n\`\`\`` : '';
+            const stderrBlock = msg.stderr?.trim() ? `${msg.stdout?.trim() ? '\n\n' : ''}错误:\n\`\`\`\n${msg.stderr}\n\`\`\`` : '';
             const outputContent = `${stdoutBlock}${stderrBlock}`;
 
             updateMessage(sessionId, msgId, {
@@ -486,8 +486,8 @@ export const useCodexEvents = ({
         const abortMessage: ChatMessage = {
           id: `${sessionId}-aborted-${generateUniqueId()}`,
           role: 'system',
-          title: '🛑 Turn Stopped',
-          content: msg.reason ? `Reason: ${msg.reason}` : 'The current turn has been aborted.',
+          title: '🛑 回合已停止',
+          content: msg.reason ? `原因：${msg.reason}` : '当前回合已被中止。',
           timestamp: new Date().getTime(),
           eventType: msg.type,
         };

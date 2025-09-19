@@ -37,7 +37,7 @@ export const Sandbox: React.FC<SandboxProps> = ({
         </Button>
       </PopoverTrigger>
       <PopoverContent align="start" className="w-56 p-0">
-        <span className='p-2'>Switch mode</span>
+        <span className='p-2'>切换模式</span>
         <TooltipProvider>
           {(Object.entries(SANDBOX_MODES) as [CodexConfig['sandboxMode'], typeof SANDBOX_MODES[CodexConfig['sandboxMode']]][]).map(([value, mode]) => (
             <Tooltip key={value}>

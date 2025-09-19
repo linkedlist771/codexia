@@ -70,7 +70,7 @@ export default function UsagePage() {
       <div className="flex items-center justify-center h-screen">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading usage data...</p>
+          <p className="text-gray-600">正在加载用量数据...</p>
         </div>
       </div>
     );
@@ -81,7 +81,7 @@ export default function UsagePage() {
       <div className="flex items-center justify-center h-screen">
         <div className="text-center">
           <p className="text-red-600 mb-4">{error}</p>
-          <Button onClick={loadUsageData}>Try Again</Button>
+          <Button onClick={loadUsageData}>重试</Button>
         </div>
       </div>
     );
@@ -91,8 +91,8 @@ export default function UsagePage() {
     return (
       <div className="flex items-center justify-center h-screen">
         <div className="text-center">
-          <p className="text-gray-600 mb-4">No usage data available</p>
-          <Button onClick={loadUsageData}>Refresh</Button>
+          <p className="text-gray-600 mb-4">暂无用量数据</p>
+          <Button onClick={loadUsageData}>刷新</Button>
         </div>
       </div>
     );
@@ -104,42 +104,42 @@ export default function UsagePage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-slate-100">Usage Dashboard</h1>
-          <p className="text-slate-400 mt-1">Track your Codex usage and costs</p>
+          <h1 className="text-3xl font-bold text-slate-100">用量看板</h1>
+          <p className="text-slate-400 mt-1">查看 Codex 用量及费用</p>
         </div>
         <Button 
           onClick={handleRefresh} 
           disabled={refreshing}
           variant="outline"
         >
-          {refreshing ? 'Refreshing...' : 'Refresh'}
+          {refreshing ? '正在刷新...' : '刷新'}
         </Button>
       </div>
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
         <SummaryCard 
-          title="Total Cost" 
+          title="总费用" 
           value={formatCurrency(usageData.totalCost)} 
-          description="Estimated spending"
+          description="预计花费"
           accent="text-emerald-400"
         />
         <SummaryCard 
-          title="Total Sessions" 
+          title="会话总数" 
           value={formatNumber(usageData.totalSessions)} 
-          description="Conversations completed"
+          description="已完成的对话"
           accent="text-cyan-400"
         />
         <SummaryCard 
-          title="Total Tokens" 
+          title="总 Tokens" 
           value={formatTokens(usageData.totalTokens)} 
-          description="Input + Output tokens"
+          description="输入 + 输出 tokens"
           accent="text-purple-400"
         />
         <SummaryCard 
-          title="Avg Cost/Session" 
+          title="平均每会话成本" 
           value={formatCurrency(usageData.avgCostPerSession)} 
-          description="Per conversation"
+          description="每次对话"
           accent="text-orange-400"
         />
       </div>
@@ -147,11 +147,11 @@ export default function UsagePage() {
       {/* Detailed Views */}
       <Tabs defaultValue="overview" className="space-y-4">
         <TabsList className="bg-slate-950/50 border-slate-800">
-          <TabsTrigger value="overview" className="data-[state=active]:bg-slate-800 data-[state=active]:text-slate-100 text-slate-400">Overview</TabsTrigger>
-          <TabsTrigger value="models" className="data-[state=active]:bg-slate-800 data-[state=active]:text-slate-100 text-slate-400">By Model</TabsTrigger>
-          <TabsTrigger value="projects" className="data-[state=active]:bg-slate-800 data-[state=active]:text-slate-100 text-slate-400">By Project</TabsTrigger>
-          <TabsTrigger value="timeline" className="data-[state=active]:bg-slate-800 data-[state=active]:text-slate-100 text-slate-400">Timeline</TabsTrigger>
-          <TabsTrigger value="tokens" className="data-[state=active]:bg-slate-800 data-[state=active]:text-slate-100 text-slate-400">Token Breakdown</TabsTrigger>
+          <TabsTrigger value="overview" className="data-[state=active]:bg-slate-800 data-[state=active]:text-slate-100 text-slate-400">总览</TabsTrigger>
+          <TabsTrigger value="models" className="data-[state=active]:bg-slate-800 data-[state=active]:text-slate-100 text-slate-400">按模型</TabsTrigger>
+          <TabsTrigger value="projects" className="data-[state=active]:bg-slate-800 data-[state=active]:text-slate-100 text-slate-400">按项目</TabsTrigger>
+          <TabsTrigger value="timeline" className="data-[state=active]:bg-slate-800 data-[state=active]:text-slate-100 text-slate-400">时间线</TabsTrigger>
+          <TabsTrigger value="tokens" className="data-[state=active]:bg-slate-800 data-[state=active]:text-slate-100 text-slate-400">Token 构成</TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview" className="space-y-4">

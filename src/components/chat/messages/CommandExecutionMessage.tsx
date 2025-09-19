@@ -14,7 +14,7 @@ export const CommandExecutionMessage: React.FC<CommandExecutionMessageProps> = (
       let cleanContent = '';
       
       const outputMatch = message.title && message.title.match(/.*?Read/);
-      const errorMatch = message.content.match(/Errors:\n```\n([\s\S]*?)\n```/);
+      const errorMatch = message.content.match(/(?:Errors|错误):\n```\n([\s\S]*?)\n```/);
       
       if (outputMatch) {
         cleanContent += `**Read:**\n\`\`\`\n${outputMatch[1]}\n\`\`\``;
@@ -22,13 +22,13 @@ export const CommandExecutionMessage: React.FC<CommandExecutionMessageProps> = (
       
       if (errorMatch) {
         if (cleanContent) cleanContent += '\n\n';
-        cleanContent += `**Errors:**\n\`\`\`\n${errorMatch[1]}\n\`\`\``;
+        cleanContent += `**错误:**\n\`\`\`\n${errorMatch[1]}\n\`\`\``;
       }
       
       // If no output or errors found, show a simple completion message
       if (!cleanContent) {
         const exitMatch = message.content.match(/exit code: (\d+)/);
-        cleanContent = exitMatch ? `Command completed with exit code: ${exitMatch[1]}` : 'Command completed successfully';
+        cleanContent = exitMatch ? `命令已完成，退出码：${exitMatch[1]}` : '命令已成功完成';
       }
       
       return cleanContent;

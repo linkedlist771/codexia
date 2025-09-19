@@ -73,7 +73,7 @@ export function ReasoningDisplay({ content, isStreaming = false, className = '' 
     return (
       <div className={`reasoning-content prose prose-sm prose-slate dark:prose-invert ${className}`}>
         <div className="text-gray-600 dark:text-gray-400 italic">
-          {isStreaming && <span className="animate-pulse">🧠 AI is thinking...</span>}
+          {isStreaming && <span className="animate-pulse">🧠 AI 正在思考...</span>}
           {!isStreaming && content}
         </div>
       </div>
@@ -98,7 +98,7 @@ export function ReasoningDisplay({ content, isStreaming = false, className = '' 
       {isStreaming && (
         <div className="flex items-center gap-2 ml-6 text-sm text-gray-500 animate-pulse">
           <Brain className="w-4 h-4" />
-          <span>Continuing analysis...</span>
+          <span>继续分析中...</span>
         </div>
       )}
     </div>

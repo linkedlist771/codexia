@@ -16,35 +16,35 @@ export default function SettingsSidebar({
         className="w-full justify-start"
         onClick={() => onSectionChange("provider")}
       >
-        Provider
+        模型提供商
       </Button>
       <Button
         variant={activeSection === "security" ? "default" : "ghost"}
         className="w-full justify-start"
         onClick={() => onSectionChange("security")}
       >
-        Security
+        安全
       </Button>
       <Button
         variant={activeSection === "working" ? "default" : "ghost"}
         className="w-full justify-start"
         onClick={() => onSectionChange("working")}
       >
-        Working Directory
+        工作目录
       </Button>
       <Button
         variant={activeSection === "exclude" ? "default" : "ghost"}
         className="w-full justify-start"
         onClick={() => onSectionChange("exclude")}
       >
-        Exclude Folders
+        排除的文件夹
       </Button>
       <Button
         variant={activeSection === "logo" ? "default" : "ghost"}
         className="w-full justify-start"
         onClick={() => onSectionChange("logo")}
       >
-        Logo Settings
+        Logo 设置
       </Button>
     </div>
   );

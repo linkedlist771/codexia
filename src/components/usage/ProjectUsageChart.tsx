@@ -30,7 +30,7 @@ export function ProjectUsageChart({ usageData, formatCurrency, formatTokens }: P
   return (
     <Card className="bg-slate-950/50 border-slate-800/50">
       <CardHeader>
-        <CardTitle className="text-slate-100">Usage by Project</CardTitle>
+        <CardTitle className="text-slate-100">按项目统计</CardTitle>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={400}>
@@ -45,7 +45,7 @@ export function ProjectUsageChart({ usageData, formatCurrency, formatTokens }: P
                 name
               ]}
             />
-            <Bar dataKey="cost" fill="#8884d8" name="Cost" />
+            <Bar dataKey="cost" fill="#8884d8" name="费用" />
           </BarChart>
         </ResponsiveContainer>
       </CardContent>

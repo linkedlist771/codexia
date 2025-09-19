@@ -56,7 +56,8 @@ export const TextSelectionMenu: React.FC<TextSelectionMenuProps> = () => {
     
     const date = new Date(timestamp);
     const timeStr = date.toLocaleString();
-    const source = `Selected text from ${messageRole} - ${timeStr}`;
+    const roleZh = messageRole === 'user' ? '用户' : messageRole === 'assistant' ? '助手' : messageRole === 'system' ? '系统' : '未知';
+    const source = `所选文本（来自${roleZh}）- ${timeStr}`;
     return { content: selectedText, source };
   };
 
@@ -120,7 +121,7 @@ export const TextSelectionMenu: React.FC<TextSelectionMenuProps> = () => {
           onClick={handleCopyText}
         >
           <Copy className="w-3 h-3 mr-1" />
-          Copy
+          复制
         </Button>
         
         <div className="w-px h-4 bg-gray-300 dark:bg-gray-600" />
@@ -133,13 +134,13 @@ export const TextSelectionMenu: React.FC<TextSelectionMenuProps> = () => {
               className="h-8 px-2"
             >
               <FileText className="w-3 h-3 mr-1" />
-              Add to Note
+              添加到便笺
             </Button>
           </PopoverTrigger>
           
           <PopoverContent className="w-64 p-2" align="center">
             <div className="space-y-2">
-              <div className="text-sm font-medium px-2">Add selected text to note</div>
+              <div className="text-sm font-medium px-2">将所选文本添加到便笺</div>
               
               {/* Add to current note if one is active */}
               {activeNote && (
@@ -150,7 +151,7 @@ export const TextSelectionMenu: React.FC<TextSelectionMenuProps> = () => {
                   onClick={handleAddToCurrentNote}
                 >
                   <FileText className="h-4 w-4 mr-2" />
-                  Add to "{activeNote.title}"
+                  添加到“{activeNote.title}”
                 </Button>
               )}
               
@@ -162,13 +163,13 @@ export const TextSelectionMenu: React.FC<TextSelectionMenuProps> = () => {
                 onClick={handleCreateNewNote}
               >
                 <FileText className="h-4 w-4 mr-2" />
-                Create new note
+                新建便笺
               </Button>
               
               {/* Add to existing note (show recent notes) */}
               {notes.length > 0 && (
                 <div className="border-t pt-2">
-                  <div className="text-xs text-gray-500 px-2 mb-1">Recent notes</div>
+                  <div className="text-xs text-gray-500 px-2 mb-1">最近的便笺</div>
                   <div className="max-h-32 overflow-y-auto space-y-1">
                     {notes
                       .filter(note => note.id !== activeNote?.id)

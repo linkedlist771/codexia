@@ -56,12 +56,12 @@ export const WebPreview: React.FC<WebPreviewProps> = ({
           <Input
             value={inputUrl}
             onChange={(e) => setInputUrl(e.target.value)}
-            placeholder="Enter URL..."
+            placeholder="输入 URL..."
             className="text-xs h-7"
           />
           {inputUrl !== currentUrl && (
             <Button type="submit" size="sm" variant="ghost" className="h-7 px-2">
-              Go
+              前往
             </Button>
           )}
         </form>
@@ -100,14 +100,14 @@ export const WebPreview: React.FC<WebPreviewProps> = ({
             src={currentUrl}
             className="w-full h-full border-0"
             sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-            title="Web Preview"
+            title="网页预览"
           />
         ) : (
           <div className="flex items-center justify-center h-full text-muted-foreground">
             <div className="text-center">
               <Globe className="w-12 h-12 mx-auto mb-4 opacity-50" />
-              <p className="text-sm">Enter a URL to preview</p>
-              <p className="text-xs mt-1">Perfect for Next.js, React apps, and more</p>
+              <p className="text-sm">输入一个 URL 进行预览</p>
+              <p className="text-xs mt-1">非常适合预览 Next.js、React 应用等</p>
             </div>
           </div>
         )}

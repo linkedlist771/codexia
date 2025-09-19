@@ -122,7 +122,7 @@ export const ModelSelector: React.FC = () => {
             {/* Left Provider Sidebar */}
             <div className="w-36 border-r border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
               <div className="p-3 border-b border-gray-200 dark:border-gray-800">
-                <h4 className="font-medium text-xs text-gray-700 dark:text-gray-300 uppercase tracking-wide">Providers</h4>
+                <h4 className="font-medium text-xs text-gray-700 dark:text-gray-300 uppercase tracking-wide">提供商</h4>
               </div>
               <div className="p-1">
                 {availableProviders.map((providerName) => (
@@ -149,11 +149,11 @@ export const ModelSelector: React.FC = () => {
             {/* Right Model List */}
             <div className="flex-1 flex flex-col">
               <div className="p-3 border-b border-gray-200 dark:border-gray-800">
-                <h4 className="font-medium text-sm text-gray-900 dark:text-gray-100 mb-2">Models for {selectedProvider}</h4>
+                <h4 className="font-medium text-sm text-gray-900 dark:text-gray-100 mb-2">{selectedProvider} 的模型</h4>
                 <div className="relative">
                   <Search className="absolute left-2 top-2.5 h-3 w-3 text-gray-500 dark:text-gray-400" />
                   <Input
-                    placeholder="Search models..."
+                    placeholder="搜索模型..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="pl-7 h-8 text-xs"
@@ -163,7 +163,7 @@ export const ModelSelector: React.FC = () => {
               <div className="flex-1 overflow-y-auto p-2">
                 {selectedProviderModels.length === 0 ? (
                   <p className="text-xs text-gray-500 dark:text-gray-400 p-2 text-center">
-                    {searchTerm.trim() ? 'No models found matching your search' : 'No models available'}
+                    {searchTerm.trim() ? '没有匹配的模型' : '暂无可用模型'}
                   </p>
                 ) : (
                   <div className="space-y-1">
@@ -183,7 +183,7 @@ export const ModelSelector: React.FC = () => {
                             variant={modelInfo.source === 'config' ? 'default' : 'secondary'} 
                             className="text-xs"
                           >
-                            {modelInfo.source === 'config' ? 'config' : 'settings'}
+                            {modelInfo.source === 'config' ? '配置' : '设置'}
                           </Badge>
                         </div>
                       </Button>
@@ -193,7 +193,7 @@ export const ModelSelector: React.FC = () => {
               </div>
               <div className="p-3 border-t border-gray-200 dark:border-gray-700">
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                  💡 Add more providers in Settings or edit ~/.codex/config.toml
+                  💡 可在“设置”中添加更多提供商，或直接编辑 ~/.codex/config.toml
                 </p>
               </div>
             </div>

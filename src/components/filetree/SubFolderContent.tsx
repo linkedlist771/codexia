@@ -72,7 +72,7 @@ export function SubFolderContent({
         style={{ marginLeft: `${level * 16}px` }}
         className="text-sm text-gray-500"
       >
-        Loading...
+        加载中...
       </div>
     );
   }

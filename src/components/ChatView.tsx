@@ -113,7 +113,7 @@ export const ChatView: React.FC<ChatViewProps> = ({ selectedConversation, showCh
         <div className="flex items-center justify-between px-2 py-1">
           <div className="flex items-center gap-2">
             <Button size="sm" variant="outline" onClick={() => setCategoryOpen(true)}>
-              Category: {selectedCategoryId ? (categories.find(c => c.id === selectedCategoryId)?.name || "Unknown") : "All"}
+              分类：{selectedCategoryId ? (categories.find(c => c.id === selectedCategoryId)?.name || "未知") : "全部"}
             </Button>
           </div>
           <div className="flex items-center gap-2">
@@ -158,7 +158,7 @@ export const ChatView: React.FC<ChatViewProps> = ({ selectedConversation, showCh
                 }
               }}
             >
-              {resumeLoading ? "Loading…" : "Resume…"}
+              {resumeLoading ? "加载中…" : "恢复…"}
             </Button>
           </div>
         </div>

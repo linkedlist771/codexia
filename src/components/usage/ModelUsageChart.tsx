@@ -27,7 +27,7 @@ export function ModelUsageChart({ usageData, formatCurrency, formatTokens }: Mod
   return (
     <Card className="bg-slate-950/50 border-slate-800/50">
       <CardHeader>
-        <CardTitle className="text-slate-100">Usage by Model</CardTitle>
+        <CardTitle className="text-slate-100">按模型统计</CardTitle>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={400}>
@@ -42,8 +42,8 @@ export function ModelUsageChart({ usageData, formatCurrency, formatTokens }: Mod
                 name
               ]}
             />
-            <Bar dataKey="sessions" fill="#8884d8" name="Sessions" />
-            <Bar dataKey="cost" fill="#82ca9d" name="Cost" />
+            <Bar dataKey="sessions" fill="#8884d8" name="会话" />
+            <Bar dataKey="cost" fill="#82ca9d" name="费用" />
           </BarChart>
         </ResponsiveContainer>
       </CardContent>

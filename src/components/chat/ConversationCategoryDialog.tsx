@@ -46,12 +46,12 @@ export const ConversationCategoryDialog: React.FC<ConversationCategoryDialogProp
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-md">
         <DialogHeader>
-          <DialogTitle>Categories</DialogTitle>
+          <DialogTitle>分类</DialogTitle>
         </DialogHeader>
         <div className="space-y-3">
           <div className="flex items-center gap-2">
             <Input
-              placeholder="New category name"
+              placeholder="新建分类名称"
               value={newCategoryName}
               onChange={(e) => setNewCategoryName(e.target.value)}
               onKeyDown={(e) => {
@@ -61,7 +61,7 @@ export const ConversationCategoryDialog: React.FC<ConversationCategoryDialogProp
               }}
             />
             <Button size="sm" onClick={handleAddCategory}>
-              Add
+              添加
             </Button>
           </div>
           <div className="border rounded divide-y">
@@ -72,10 +72,10 @@ export const ConversationCategoryDialog: React.FC<ConversationCategoryDialogProp
                 onOpenChange(false);
               }}
             >
-              All
+              全部
             </button>
             {categories.length === 0 ? (
-              <div className="p-3 text-sm text-muted-foreground">No categories yet.</div>
+              <div className="p-3 text-sm text-muted-foreground">还没有分类。</div>
             ) : (
               categories.map((cat) => (
                 <div key={cat.id} className="flex items-center">
@@ -93,7 +93,7 @@ export const ConversationCategoryDialog: React.FC<ConversationCategoryDialogProp
                     size="sm"
                     className="px-2 text-muted-foreground"
                     onClick={() => onDeleteCategory(cat.id)}
-                    title="Delete category"
+                    title="删除分类"
                   >
                     ×
                   </Button>

@@ -60,7 +60,7 @@ export function AppHeader() {
         setCodexVersion(version);
         setIsCodexAvailable(true);
       } catch (error) {
-        setCodexVersion("Not available");
+        setCodexVersion("不可用");
         setIsCodexAvailable(false);
       }
     };
@@ -86,12 +86,12 @@ export function AppHeader() {
               <Badge>{codexVersion}</Badge>
             </span>
           )}
-          Chat
+          聊天
         </Link>
 
         {/* Welcome button to projects page */}
         <Link to="/" className="flex hover:text-primary items-center gap-1">
-          <PartyPopper className="w-5 h-5" /> Projects
+          <PartyPopper className="w-5 h-5" /> 项目
         </Link>
 
         {location.pathname === "/chat" && (
@@ -120,7 +120,7 @@ export function AppHeader() {
           to="/usage"
           className="flex hover:text-primary items-center gap-1"
         >
-          <BarChart3 className="w-4 h-4" /> Usage
+          <BarChart3 className="w-4 h-4" /> 用量
         </Link>
 
         <Button variant="ghost" onClick={toggleChatPane} className="h-6 w-6">
@@ -139,31 +139,31 @@ export function AppHeader() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Accent Color</DropdownMenuLabel>
+            <DropdownMenuLabel>强调色</DropdownMenuLabel>
             <DropdownMenuRadioGroup value={accent} onValueChange={(val) => setAccent(val as Accent)}>
               <DropdownMenuRadioItem value="pink">
                 <span className="inline-flex items-center gap-2">
-                  <span className="inline-block size-3 rounded-full bg-pink-500" /> Pink
+                  <span className="inline-block size-3 rounded-full bg-pink-500" /> 粉色
                 </span>
               </DropdownMenuRadioItem>
               <DropdownMenuRadioItem value="blue">
                 <span className="inline-flex items-center gap-2">
-                  <span className="inline-block size-3 rounded-full bg-blue-500" /> Blue
+                  <span className="inline-block size-3 rounded-full bg-blue-500" /> 蓝色
                 </span>
               </DropdownMenuRadioItem>
               <DropdownMenuRadioItem value="green">
                 <span className="inline-flex items-center gap-2">
-                  <span className="inline-block size-3 rounded-full bg-emerald-500" /> Green
+                  <span className="inline-block size-3 rounded-full bg-emerald-500" /> 绿色
                 </span>
               </DropdownMenuRadioItem>
               <DropdownMenuRadioItem value="purple">
                 <span className="inline-flex items-center gap-2">
-                  <span className="inline-block size-3 rounded-full bg-purple-500" /> Purple
+                  <span className="inline-block size-3 rounded-full bg-purple-500" /> 紫色
                 </span>
               </DropdownMenuRadioItem>
               <DropdownMenuRadioItem value="orange">
                 <span className="inline-flex items-center gap-2">
-                  <span className="inline-block size-3 rounded-full bg-orange-500" /> Orange
+                  <span className="inline-block size-3 rounded-full bg-orange-500" /> 橙色
                 </span>
               </DropdownMenuRadioItem>
             </DropdownMenuRadioGroup>
@@ -175,7 +175,7 @@ export function AppHeader() {
           className="flex hover:text-primary items-center gap-1"
         >
           <Settings className="w-4 h-4" />
-          Settings
+          设置
         </Link>
 
         {(import.meta.env.VITE_ENABLE_AUTH === 'true') && (
@@ -198,9 +198,9 @@ export function AppHeader() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                  <DropdownMenuLabel>Account</DropdownMenuLabel>
+                  <DropdownMenuLabel>账户</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={handleLogout}>Sign out</DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleLogout}>退出登录</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
@@ -208,7 +208,7 @@ export function AppHeader() {
                 to="/login"
                 className="flex hover:text-primary items-center gap-1 px-2"
               >
-                login
+                登录
               </Link>
             )}
           </>

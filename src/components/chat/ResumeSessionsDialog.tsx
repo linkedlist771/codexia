@@ -103,7 +103,7 @@ export const ResumeSessionsDialog: React.FC<ResumeSessionsDialogProps> = ({
       <DialogContent className="sm:max-w-2xl">
         <DialogHeader>
           <div className="flex items-center justify-between gap-2">
-            <DialogTitle>Resume a previous session</DialogTitle>
+            <DialogTitle>恢复历史会话</DialogTitle>
             <div className="flex items-center gap-2">
               <label className="flex items-center gap-2 text-xs text-muted-foreground">
                 <input
@@ -111,12 +111,12 @@ export const ResumeSessionsDialog: React.FC<ResumeSessionsDialogProps> = ({
                   checked={selectMode}
                   onChange={(event) => handleSelectModeChange(event.target.checked)}
                 />
-                Select mode
+                多选模式
               </label>
               {selectMode && (
                 <>
                   <Button size="sm" variant="outline" onClick={handleSelectAll}>
-                    Select all
+                    全选
                   </Button>
                   <Button
                     size="sm"
@@ -124,26 +124,26 @@ export const ResumeSessionsDialog: React.FC<ResumeSessionsDialogProps> = ({
                     disabled={selectedCount === 0}
                     onClick={handleDeleteSelected}
                   >
-                    Delete ({selectedCount})
+                    删除（{selectedCount}）
                   </Button>
                 </>
               )}
             </div>
           </div>
           <div className="text-xs text-muted-foreground">
-            Current project: {currentProject || "(none)"}
+            当前项目：{currentProject || "（无）"}
           </div>
         </DialogHeader>
         <div className="max-h-96 overflow-y-auto divide-y rounded border">
           {candidates.length === 0 ? (
             <div className="p-4 text-sm text-muted-foreground">
-              No recorded sessions {resumeOnlyProject ? "for this project" : ""}.
+              暂无可恢复的会话{resumeOnlyProject ? "（当前项目）" : ""}。
               {resumeOnlyProject && (
                 <button
                   className="ml-2 underline hover:no-underline"
                   onClick={() => setResumeOnlyProject(false)}
                 >
-                  Show all
+                  显示全部
                 </button>
               )}
             </div>

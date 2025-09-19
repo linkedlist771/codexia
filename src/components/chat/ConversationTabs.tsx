@@ -73,13 +73,13 @@ export function ConversationTabs({
       className="flex flex-col h-full"
     >
       <TabsList className="grid w-full grid-cols-2 flex-shrink-0">
-        <TabsTrigger value="sessions">Sessions</TabsTrigger>
-        <TabsTrigger value="favorites">Favorites</TabsTrigger>
+        <TabsTrigger value="sessions">会话</TabsTrigger>
+        <TabsTrigger value="favorites">收藏</TabsTrigger>
       </TabsList>
 
       <div className="flex-1 overflow-y-auto mt-0">
         <SearchInput
-          placeholder="Search conversations..."
+          placeholder="搜索会话..."
           value={searchQuery}
           onChange={onSearchChange}
         />

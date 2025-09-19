@@ -366,7 +366,7 @@ export function CodeEditor({
             onClick={handleSave}
             disabled={isSaving}
             className="p-1 h-auto"
-            title="Save changes (Ctrl+S)"
+            title="保存更改（Ctrl+S）"
           >
             <Save className="w-4 h-4" />
           </Button>
@@ -377,7 +377,7 @@ export function CodeEditor({
           size="sm"
           onClick={toggleSearch}
           className="p-1 h-auto"
-          title="Search in file"
+          title="在文件中搜索"
         >
           <Search className="w-4 h-4" />
         </Button>
@@ -389,7 +389,7 @@ export function CodeEditor({
           <Search className={`w-4 h-4 ${theme === 'dark' ? 'text-muted-foreground' : 'text-gray-400'}`} />
           <Input
             type="text"
-            placeholder="Search in file..."
+            placeholder="在文件中搜索..."
             value={searchTerm}
             onChange={(e) => handleSearch(e.target.value)}
             onKeyDown={(e) => {
@@ -417,7 +417,7 @@ export function CodeEditor({
                 size="sm"
                 onClick={handleSearchPrev}
                 className="p-1 h-auto"
-                title="Previous match"
+                title="上一个匹配"
               >
                 <ChevronUp className="w-3 h-3" />
               </Button>
@@ -426,7 +426,7 @@ export function CodeEditor({
                 size="sm"
                 onClick={handleSearchNext}
                 className="p-1 h-auto"
-                title="Next match"
+                title="下一个匹配"
               >
                 <ChevronDown className="w-3 h-3" />
               </Button>
@@ -437,7 +437,7 @@ export function CodeEditor({
             size="sm"
             onClick={toggleSearch}
             className="p-1 h-auto"
-            title="Close search"
+            title="关闭搜索"
           >
             <X className="w-3 h-3" />
           </Button>
@@ -470,7 +470,7 @@ export function CodeEditor({
                   setSelection(null);
                 }}
                 className="p-1 h-auto"
-                title="Send selected text to AI"
+                title="将所选文本发送到 AI"
               >
                 <Send className="w-4 h-4" />
               </Button>
@@ -484,7 +484,7 @@ export function CodeEditor({
                   setSelection(null);
                 }}
                 className="p-1 h-auto"
-                title="Add selected text to note"
+                title="将所选文本添加到便笺"
               >
                 <FileText className="w-4 h-4" />
               </Button>

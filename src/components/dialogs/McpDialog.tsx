@@ -204,13 +204,13 @@ export function McpDialog({ children }: McpDialogProps) {
       </DialogTrigger>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto sm:!max-w-4xl">
         <DialogHeader>
-          <DialogTitle>MCP Server Management</DialogTitle>
+          <DialogTitle>MCP 服务器管理</DialogTitle>
         </DialogHeader>
         
         <div className="space-y-6">
           {/* Default Servers Section */}
           <div>
-            <h3 className="text-lg font-semibold mb-3">Quick Add Servers</h3>
+            <h3 className="text-lg font-semibold mb-3">快速添加服务器</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {defaultServers.map((defaultServer) => {
                 const isAlreadyAdded = Object.hasOwnProperty.call(servers, defaultServer.name);
@@ -228,7 +228,7 @@ export function McpDialog({ children }: McpDialogProps) {
                           disabled={isAlreadyAdded}
                         >
                           <Plus className="h-4 w-4 mr-1" />
-                          {isAlreadyAdded ? 'Added' : 'Add'}
+                          {isAlreadyAdded ? '已添加' : '添加'}
                         </Button>
                       </div>
                     </CardContent>
@@ -239,7 +239,7 @@ export function McpDialog({ children }: McpDialogProps) {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div>
-              <h3 className="text-lg font-semibold mb-4">Configured Servers</h3>
+              <h3 className="text-lg font-semibold mb-4">已配置的服务器</h3>
               <div className="space-y-2 max-h-96 overflow-y-auto">
                 {Object.entries(servers).map(([name, config]) => (
                   <Card key={name}>
@@ -247,7 +247,7 @@ export function McpDialog({ children }: McpDialogProps) {
                       <div className="p-4">
                         <div className="space-y-4">
                           <div>
-                            <div className="text-sm font-medium mb-1">Server Name</div>
+                            <div className="text-sm font-medium mb-1">服务器名称</div>
                             <Input
                               value={editConfig?.name ?? ''}
                               onChange={(e) => setEditConfig(prev => prev ? { ...prev, name: e.target.value } : null)}
@@ -262,21 +262,21 @@ export function McpDialog({ children }: McpDialogProps) {
                             
                             <TabsContent value="stdio" className="space-y-4">
                               <div>
-                                <div className="text-sm font-medium mb-1">Command</div>
+                                <div className="text-sm font-medium mb-1">命令</div>
                                 <Input
                                   value={editConfig?.command.command || ''}
                                   onChange={(e) => setEditConfig(prev => prev ? { ...prev, command: { ...prev.command, command: e.target.value } } : null)}
                                 />
                               </div>
                               <div>
-                                <div className="text-sm font-medium mb-1">Arguments</div>
+                                <div className="text-sm font-medium mb-1">参数</div>
                                 <Input
                                   value={editConfig?.command.args || ''}
                                   onChange={(e) => setEditConfig(prev => prev ? { ...prev, command: { ...prev.command, args: e.target.value } } : null)}
                                 />
                               </div>
                               <div>
-                                <div className="text-sm font-medium mb-1">Environment Variables (JSON)</div>
+                                <div className="text-sm font-medium mb-1">环境变量（JSON）</div>
                                 <Textarea
                                   value={editConfig?.command.env || ''}
                                   onChange={(e) => setEditConfig(prev => prev ? { ...prev, command: { ...prev.command, env: e.target.value } } : null)}
@@ -300,11 +300,11 @@ export function McpDialog({ children }: McpDialogProps) {
                           <div className="flex gap-2">
                             <Button size="sm" onClick={handleSaveEdit}>
                               <Save className="h-4 w-4 mr-1" />
-                              Save
+                              保存
                             </Button>
                             <Button size="sm" variant="outline" onClick={handleCancelEdit}>
                               <X className="h-4 w-4 mr-1" />
-                              Cancel
+                              取消
                             </Button>
                           </div>
                         </div>
@@ -358,21 +358,21 @@ export function McpDialog({ children }: McpDialogProps) {
                 ))}
                 {Object.keys(servers).length === 0 && (
                   <div className="text-gray-500 text-center py-8">
-                    No MCP servers configured
+                    暂未配置 MCP 服务器
                   </div>
                 )}
               </div>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4">Add New Server</h3>
+              <h3 className="text-lg font-semibold mb-4">添加新服务器</h3>
               <div className="space-y-4">
                 <div>
-                  <div className="text-sm font-medium mb-1">Server Name</div>
+                  <div className="text-sm font-medium mb-1">服务器名称</div>
                   <Input
                     value={newServerName}
                     onChange={(e) => setNewServerName(e.target.value)}
-                    placeholder="e.g., fetch, deepwiki"
+                    placeholder="例如：fetch、deepwiki"
                   />
                 </div>
 
@@ -388,23 +388,23 @@ export function McpDialog({ children }: McpDialogProps) {
                       <Input
                         value={commandConfig.command}
                         onChange={(e) => setCommandConfig(prev => ({ ...prev, command: e.target.value }))}
-                        placeholder="e.g., uvx, npx"
+                        placeholder="例如：uvx、npx"
                       />
                     </div>
                     <div>
-                      <div className="text-sm font-medium mb-1">Arguments</div>
+                      <div className="text-sm font-medium mb-1">参数</div>
                       <Input
                         value={commandConfig.args}
                         onChange={(e) => setCommandConfig(prev => ({ ...prev, args: e.target.value }))}
-                        placeholder="e.g., -y mcp-server-fetch"
+                        placeholder="例如：-y mcp-server-fetch"
                       />
                     </div>
                     <div>
-                      <div className="text-sm font-medium mb-1">Environment Variables (JSON, optional)</div>
+                      <div className="text-sm font-medium mb-1">环境变量（JSON，可选）</div>
                       <Textarea
                         value={commandConfig.env}
                         onChange={(e) => setCommandConfig(prev => ({ ...prev, env: e.target.value }))}
-                        placeholder='{"API_KEY": "value"} - Leave empty if not needed'
+                        placeholder='{"API_KEY": "value"} - 若不需要可留空'
                         rows={3}
                       />
                     </div>
@@ -424,7 +424,7 @@ export function McpDialog({ children }: McpDialogProps) {
 
                 <Button onClick={handleAddServer} disabled={!newServerName} className="w-full">
                   <Plus className="h-4 w-4 mr-2" />
-                  Add Server
+                  添加服务器
                 </Button>
               </div>
             </div>

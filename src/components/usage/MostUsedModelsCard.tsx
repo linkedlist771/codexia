@@ -11,7 +11,7 @@ export function MostUsedModelsCard({ usageData, formatCurrency, formatTokens }: 
   return (
     <Card className="bg-slate-950/50 border-slate-800/50">
       <CardHeader>
-        <CardTitle className="text-slate-100">Most Used Models</CardTitle>
+        <CardTitle className="text-slate-100">最常用模型</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
@@ -23,7 +23,7 @@ export function MostUsedModelsCard({ usageData, formatCurrency, formatTokens }: 
                 <div className="flex justify-between items-center">
                   <span className="text-sm font-medium text-slate-200">{model}</span>
                   <span className="text-sm text-slate-400">
-                    {data.sessions} sessions
+                    {data.sessions} 次会话
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-xs text-slate-500">

@@ -192,7 +192,7 @@ export function FileTreeItem({
                     </Badge>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>{tokens} tokens</p>
+                    <p>{tokens} 个 tokens</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -212,7 +212,7 @@ export function FileTreeItem({
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Set as working folder</p>
+                    <p>设为工作目录</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -266,7 +266,7 @@ export function FileTreeItem({
       
       <ContextMenuContent>
         <ContextMenuItem onClick={handleCopyRelativePath}>
-          Copy relative path
+          复制相对路径
         </ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>

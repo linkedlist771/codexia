@@ -67,10 +67,10 @@ export function NoteEditor() {
         <div className="text-center space-y-4 max-w-md">
           <Edit3 className="w-12 h-12 text-gray-400 mx-auto" />
           <h2 className="text-xl font-semibold text-gray-800">
-            No note selected
+            未选择便笺
           </h2>
           <p className="text-gray-600">
-            Select a note from the list or create a new one to start writing.
+            从列表中选择一个便笺，或创建新的便笺开始书写。
           </p>
         </div>
       </div>
@@ -87,7 +87,7 @@ export function NoteEditor() {
               value={title}
               onChange={(e) => handleTitleChange(e.target.value)}
               className="font-medium"
-              placeholder="Note title..."
+              placeholder="便笺标题..."
               autoFocus
               onBlur={() => setIsEditing(false)}
               onKeyDown={(e) => {
@@ -100,9 +100,9 @@ export function NoteEditor() {
             <h1 
               className="text-lg font-medium text-gray-900 dark:text-gray-100 truncate cursor-text hover:bg-gray-50 dark:hover:bg-gray-700 px-2 py-1 rounded"
               onClick={() => setIsEditing(true)}
-              title="Click to edit title"
+              title="点击以编辑标题"
             >
-              {title || "Untitled Note"}
+              {title || "未命名便笺"}
             </h1>
           )}
         </div>
@@ -120,7 +120,7 @@ export function NoteEditor() {
               onClick={() => setViewMode('edit')}
             >
               <Code className="w-3 h-3 mr-1.5" />
-              Edit
+              编辑
             </Button>
             <Button
               variant={viewMode === 'preview' ? 'default' : 'outline'}
@@ -129,7 +129,7 @@ export function NoteEditor() {
               onClick={() => setViewMode('preview')}
             >
               <Eye className="w-3 h-3 mr-1.5" />
-              Preview
+              预览
             </Button>
             <Button
               variant={viewMode === 'split' ? 'default' : 'outline'}
@@ -137,7 +137,7 @@ export function NoteEditor() {
               className="h-8 rounded-l-none"
               onClick={() => setViewMode('split')}
             >
-              Split
+              分屏
             </Button>
           </div>
 
@@ -148,7 +148,7 @@ export function NoteEditor() {
               className="h-8"
             >
               <Save className="w-3 h-3 mr-1.5" />
-              Save
+              保存
             </Button>
           )}
         </div>
@@ -177,7 +177,7 @@ export function NoteEditor() {
                 tabSize: 2,
                 wrap: true
               }}
-              placeholder="Start writing your note in markdown..."
+              placeholder="开始用 Markdown 记录你的便笺..."
             />
           </div>
         )}
@@ -249,7 +249,7 @@ export function NoteEditor() {
                   ),
                 }}
               >
-                {content || "*No content to preview*"}
+                {content || "*暂无内容可预览*"}
               </ReactMarkdown>
             </div>
           </div>
@@ -278,7 +278,7 @@ export function NoteEditor() {
                   tabSize: 2,
                   wrap: true
                 }}
-                placeholder="Start writing your note in markdown..."
+                placeholder="开始用 Markdown 记录你的便笺..."
               />
             </div>
             
@@ -349,7 +349,7 @@ export function NoteEditor() {
                     ),
                   }}
                 >
-                  {content || "*No content to preview*"}
+                  {content || "*暂无内容可预览*"}
                 </ReactMarkdown>
               </div>
             </div>
@@ -360,10 +360,10 @@ export function NoteEditor() {
       {/* Footer with metadata */}
       <div className="px-4 py-2 border-t bg-gray-50 dark:bg-gray-800 dark:border-gray-700 text-xs text-gray-500 dark:text-gray-400 flex justify-between items-center">
         <span>
-          Created: {new Date(currentNote.createdAt).toLocaleDateString()}
+          创建时间：{new Date(currentNote.createdAt).toLocaleDateString()}
         </span>
         <span>
-          Modified: {new Date(currentNote.updatedAt).toLocaleString()}
+          修改时间：{new Date(currentNote.updatedAt).toLocaleString()}
         </span>
       </div>
     </div>

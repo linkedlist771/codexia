@@ -26,20 +26,20 @@ export default function ExcludeFolders() {
   return (
     <Card className="w-full max-w-2xl">
       <CardHeader>
-        <CardTitle>Exclude Folders</CardTitle>
+        <CardTitle>排除的文件夹</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
       <div className="flex items-end gap-2">
         <div className="flex-1">
           <Label htmlFor="new-folder" className="mb-1">
-            Add folder to exclude
+            添加需要排除的文件夹
           </Label>
           <Input
             id="new-folder"
             value={newFolder}
             onChange={(e) => setNewFolder(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="e.g., .git, node_modules, dist"
+            placeholder="例如：.git、node_modules、dist"
           />
         </div>
         <Button 
@@ -48,12 +48,12 @@ export default function ExcludeFolders() {
           className="h-[38px]"
         >
           <Plus className="w-4 h-4 mr-2" />
-          Add
+          添加
         </Button>
       </div>
         
         <div>
-          <Label>Excluded folders</Label>
+          <Label>已排除的文件夹</Label>
           <div className="mt-2 space-y-2">
             {excludeFolders.map((folder) => (
               <div key={folder} className="flex items-center justify-between bg-muted rounded px-2">

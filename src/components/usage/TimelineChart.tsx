@@ -22,7 +22,7 @@ export function TimelineChart({ usageData, formatCurrency, formatTokens }: Timel
   return (
     <Card className="bg-slate-950/50 border-slate-800/50">
       <CardHeader>
-        <CardTitle className="text-slate-100">Usage Timeline (Last 30 Days)</CardTitle>
+        <CardTitle className="text-slate-100">用量时间线（最近 30 天）</CardTitle>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={400}>
@@ -37,8 +37,8 @@ export function TimelineChart({ usageData, formatCurrency, formatTokens }: Timel
                 name
               ]}
             />
-            <Line type="monotone" dataKey="cost" stroke="#8884d8" name="Cost" />
-            <Line type="monotone" dataKey="sessions" stroke="#82ca9d" name="Sessions" />
+            <Line type="monotone" dataKey="cost" stroke="#8884d8" name="费用" />
+            <Line type="monotone" dataKey="sessions" stroke="#82ca9d" name="会话" />
           </LineChart>
         </ResponsiveContainer>
       </CardContent>

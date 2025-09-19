@@ -95,10 +95,10 @@ export function UpdateChecker() {
         setShowDialog(true);
       }
     } catch (error) {
-      console.error("Failed to check for updates:", error);
+      console.error("检查更新失败:", error);
       setUpdateState(prev => ({
         ...prev,
-        error: error instanceof Error ? error.message : "Unknown error",
+        error: error instanceof Error ? error.message : "未知错误",
       }));
     }
   };
@@ -111,10 +111,10 @@ export function UpdateChecker() {
     try {
       await updateState.update.downloadAndInstall();
     } catch (error) {
-      console.error("Failed to download and install update:", error);
+      console.error("下载并安装更新失败:", error);
       setUpdateState(prev => ({
         ...prev,
-        error: error instanceof Error ? error.message : "Update failed",
+        error: error instanceof Error ? error.message : "更新失败",
       }));
       return;
     }
@@ -133,15 +133,15 @@ export function UpdateChecker() {
       <Dialog open={showDialog} onOpenChange={setShowDialog}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Update Available</DialogTitle>
+            <DialogTitle>发现新版本</DialogTitle>
             <DialogDescription>
-              Version {updateState.update?.version} is available. Would you like to download and install it?
+              发现版本 {updateState.update?.version}。是否下载并安装？
             </DialogDescription>
           </DialogHeader>
 
           {updateState.update?.body && (
             <div className="mt-4">
-              <h4 className="text-sm font-medium mb-2">What's new:</h4>
+              <h4 className="text-sm font-medium mb-2">更新内容：</h4>
               <div className="text-sm text-muted-foreground bg-muted p-3 rounded-md max-h-40 overflow-y-auto whitespace-pre-wrap">
                 {updateState.update.body}
               </div>
@@ -149,7 +149,7 @@ export function UpdateChecker() {
           )}
 
           <DialogFooter className="flex-row gap-2">
-            <Button 
+              <Button 
               variant="ghost"
               size="sm"
               onClick={() => {
@@ -159,7 +159,7 @@ export function UpdateChecker() {
                 setShowDialog(false);
               }}
             >
-              Skip this version
+              跳过此版本
             </Button>
             <div className="flex gap-2">
               <Button 
@@ -172,7 +172,7 @@ export function UpdateChecker() {
                   setShowDialog(false);
                 }}
               >
-                Remind me later
+                稍后提醒
               </Button>
               <Button
                 onClick={async () => {
@@ -181,7 +181,7 @@ export function UpdateChecker() {
                   await relaunch();
                 }}
               >
-                Update Now
+                立即更新
               </Button>
               </div>
           </DialogFooter>

@@ -63,7 +63,7 @@ export function ConversationItem({
         ? lastMessage.content.substring(0, 100) + "..."
         : lastMessage.content;
     }
-    return "No messages yet";
+    return "还没有消息";
   };
 
   return (
@@ -103,7 +103,7 @@ export function ConversationItem({
               {formatDate(conversation.updatedAt)}
             </span>
             <span className="text-xs text-muted-foreground/70">
-              {conversation.messages.length} messages
+              {conversation.messages.length} 条消息
             </span>
           </div>
         </div>
@@ -131,12 +131,12 @@ export function ConversationItem({
                   {isFavorited ? (
                     <>
                       <Star className="h-3 w-3 mr-2 text-yellow-500 fill-current" />
-                      Unfavorite
+                      取消收藏
                     </>
                   ) : (
                     <>
                       <StarOff className="h-3 w-3 mr-2" />
-                      Favorite
+                      收藏
                     </>
                   )}
                 </DropdownMenuItem>
@@ -149,7 +149,7 @@ export function ConversationItem({
                     }}
                   >
                     <Tag className="h-3 w-3 mr-2" />
-                    Remove from category
+                    从分类中移除
                   </DropdownMenuItem>
                 )}
                 {categories.length > 0 && <DropdownMenuSeparator />}
@@ -162,7 +162,7 @@ export function ConversationItem({
                     }}
                   >
                     <Tag className="h-3 w-3 mr-2" />
-                    Add to “{cat.name}”
+                    添加到“{cat.name}”
                   </DropdownMenuItem>
                 ))}
 
@@ -171,7 +171,7 @@ export function ConversationItem({
                   className="text-destructive hover:text-destructive/80"
                 >
                   <Trash2 className="h-3 w-3 mr-2" />
-                  Delete
+                  删除
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

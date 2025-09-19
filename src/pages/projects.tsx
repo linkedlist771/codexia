@@ -94,7 +94,7 @@ export default function ProjectsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full">
-        <div>Loading projects...</div>
+        <div>正在加载项目...</div>
       </div>
     );
   }
@@ -104,13 +104,13 @@ export default function ProjectsPage() {
       <div className="flex items-center justify-between">
         <div className="w-full">
           <div className="flex items-center justify-between w-full">
-            <h1 className="text-2xl font-bold">Projects</h1>
+            <h1 className="text-2xl font-bold">项目</h1>
             <Button onClick={selectNewProject}>
               <Plus className="w-3 h-3" />
-              Open Project
+              打开项目
             </Button>
           </div>
-          <p className="text-muted-foreground">Manage your Codex projects</p>
+          <p className="text-muted-foreground">管理你的 Codex 项目</p>
         </div>
       </div>
 
@@ -118,9 +118,9 @@ export default function ProjectsPage() {
         <Card>
           <CardContent className="p-6 text-center">
             <FolderOpen className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
-            <h3 className="text-lg font-semibold mb-2">No projects found</h3>
+            <h3 className="text-lg font-semibold mb-2">未找到项目</h3>
             <p className="text-muted-foreground">
-              run codex at project to see them here.
+              在项目目录运行 codex 后即可在此看到。
             </p>
           </CardContent>
         </Card>
@@ -148,7 +148,7 @@ export default function ProjectsPage() {
                           : "bg-yellow-100 text-yellow-800"
                       }`}
                     >
-                      {project.trust_level}
+                      {project.trust_level === 'trusted' ? '已信任' : '未信任'}
                     </span>
                   </CardTitle>
                   <CardDescription>{project.path}</CardDescription>
@@ -163,15 +163,15 @@ export default function ProjectsPage() {
       <Dialog open={trustDialogOpen} onOpenChange={setTrustDialogOpen}>
         <DialogContent showCloseButton={false}>
           <DialogHeader>
-            <DialogTitle>Trust This Project?</DialogTitle>
+            <DialogTitle>信任此项目？</DialogTitle>
             <DialogDescription>
-              {`Since this folder is version controlled, you may wish to allow Codex to work in this folder without asking for approval.`}
+              {`检测到该文件夹受版本控制。你可以允许 Codex 在此项目中工作时不再请求审批。`}
             </DialogDescription>
           </DialogHeader>
           <div className="text-sm text-muted-foreground whitespace-pre-wrap">
             {pendingProjectPath && isVersionControlled ? (
               <>
-                {"\n  1. Yes, allow Codex to work in this folder without asking for approval\n  2. No, ask me to approve edits and commands"}
+                {"\n  1. 是，允许 Codex 在此文件夹中工作且无需审批\n  2. 否，编辑和命令需要我审批"}
               </>
             ) : null}
           </div>
@@ -188,7 +188,7 @@ export default function ProjectsPage() {
                 }
               }}
             >
-              No, ask me to approve
+              否，需要审批
             </Button>
             <Button
               onClick={async () => {
@@ -210,7 +210,7 @@ export default function ProjectsPage() {
                 }
               }}
             >
-              Yes, allow without approval
+              是，允许且无需审批
             </Button>
           </DialogFooter>
         </DialogContent>

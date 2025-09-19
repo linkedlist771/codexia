@@ -263,12 +263,12 @@ export function FileTree({
 
   if (loading && entries.length === 0) {
     return (
-      <div className="p-4 text-center text-muted-foreground">Loading files...</div>
+      <div className="p-4 text-center text-muted-foreground">正在加载文件...</div>
     );
   }
 
   if (error) {
-    return <div className="p-4 text-center text-destructive">Error: {error}</div>;
+    return <div className="p-4 text-center text-destructive">错误：{error}</div>;
   }
 
   return (
@@ -287,7 +287,7 @@ export function FileTree({
         {filterText.trim() ? (
           <>
             {isSearching && entries.length === 0 && searchResults.length === 0 && (
-              <div className="p-2 text-xs text-muted-foreground">Searching...</div>
+              <div className="p-2 text-xs text-muted-foreground">搜索中...</div>
             )}
             {searchResults.map((entry) => (
               <FileTreeItem
@@ -304,7 +304,7 @@ export function FileTree({
               />
             ))}
             {!isSearching && searchResults.length === 0 && (
-              <div className="p-2 text-xs text-muted-foreground">No matches found</div>
+              <div className="p-2 text-xs text-muted-foreground">未找到匹配项</div>
             )}
           </>
         ) : (

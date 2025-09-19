@@ -78,19 +78,19 @@ export interface CodexConfig {
 
 export const SANDBOX_MODES = {
   'read-only': {
-    label: 'Read Only',
-    shortLabel: 'Chat or plan',
-    description: 'View files only, requires approval for edits/commands'
+    label: '只读',
+    shortLabel: '聊天/计划',
+    description: '只能查看文件，编辑/命令需审批'
   },
   'workspace-write': {
-    label: 'Workspace Write', 
+    label: '工作区写入', 
     shortLabel: 'Agent',
-    description: 'Edit project files, approval for network/external access'
+    description: '可编辑项目文件，网络/外部访问需审批'
   },
   'danger-full-access': {
-    label: 'Full Access',
-    shortLabel: 'Agent (Full)',
-    description: 'System-wide access without restrictions'
+    label: '完全访问',
+    shortLabel: 'Agent（完全）',
+    description: '系统范围无限制访问'
   }
 } as const;
 

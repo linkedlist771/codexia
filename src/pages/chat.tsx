@@ -112,7 +112,7 @@ export default function ChatPage() {
         <div className="w-64 border-r h-full flex-shrink-0">
           <Tabs value={selectedLeftPanelTab} onValueChange={setSelectedLeftPanelTab} className="h-full flex flex-col">
             <TabsList className="grid w-full grid-cols-6">
-              <TabsTrigger value="files">Files</TabsTrigger>
+              <TabsTrigger value="files">文件</TabsTrigger>
               <TabsTrigger value="git">
                 <GitBranch />
               </TabsTrigger>
@@ -153,16 +153,13 @@ export default function ChatPage() {
                 {fileReferences.length === 0 ? (
                   <div className="text-center text-muted-foreground mt-8">
                     <Files size={32} className="mx-auto mb-2 opacity-50" />
-                    <p className="text-sm">No files added yet</p>
-                    <p className="text-xs mt-1">
-                      Add files from the Files tab to see them here
-                    </p>
+                    <p className="text-sm">尚未添加文件</p>
+                    <p className="text-xs mt-1">可在“文件”标签中添加</p>
                   </div>
                 ) : (
                   <div className="space-y-0">
                     <div className="text-xs text-muted-foreground mb-2 px-2">
-                      {fileReferences.length} file
-                      {fileReferences.length !== 1 ? "s" : ""} added to chat
+                      已添加 {fileReferences.length} 个文件到聊天
                     </div>
                     {fileReferences.map((ref) => (
                       <FileTreeItem
@@ -204,7 +201,7 @@ export default function ChatPage() {
               <NoteList />
             </TabsContent>
             <TabsContent value="image" className="px-2">
-              Create your first image and video
+              在这里创建你的第一张图片或视频
             </TabsContent>
           </Tabs>
         </div>
@@ -235,7 +232,7 @@ export default function ChatPage() {
               <div className="h-full flex flex-col">
                 <div className="p-2 border-b bg-muted/50 flex items-center justify-between">
                   <span className="text-sm font-medium">
-                    Diff: {diffFile.fileName}
+                    差异：{diffFile.fileName}
                   </span>
                   <button
                     onClick={() => closeDiffFile()}

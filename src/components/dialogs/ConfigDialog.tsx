@@ -63,10 +63,10 @@ export const ConfigDialog: React.FC<ConfigDialogProps> = ({
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <Settings className="w-5 h-5" />
-            Codex Configuration
+            Codex 配置
           </DialogTitle>
           <DialogDescription>
-            Configure your Codex settings and preferences
+            配置 Codex 的设置和偏好
           </DialogDescription>
         </DialogHeader>
 
@@ -74,12 +74,12 @@ export const ConfigDialog: React.FC<ConfigDialogProps> = ({
         <div className="space-y-6">
           {/* Codex Executable Path */}
           <div className="space-y-2">
-            <label className="text-sm font-medium">Codex Executable Path</label>
+            <label className="text-sm font-medium">Codex 可执行文件路径</label>
             <div className="flex gap-2">
               <Input
                 value={localConfig.codexPath || ''}
                 onChange={(e) => updateConfig('codexPath', e.target.value || undefined)}
-                placeholder="Auto-detect or specify path to codex"
+                placeholder="自动检测或手动指定 codex 路径"
                 className="flex-1"
               />
               <Button
@@ -88,27 +88,27 @@ export const ConfigDialog: React.FC<ConfigDialogProps> = ({
                 className="flex items-center gap-2"
               >
                 <FileText className="w-4 h-4" />
-                Browse
+                浏览
               </Button>
             </div>
             <p className="text-xs text-gray-500">
-              Path to codex executable. Leave empty for auto-detection in common locations like ~/.bun/bin/codex
+              codex 可执行文件路径。留空则在常见位置（如 ~/.bun/bin/codex）自动检测。
             </p>
           </div>
 
           {/* Security Settings */}
           <div className="space-y-4">
-            <h3 className="text-lg font-medium">Security Settings</h3>
+            <h3 className="text-lg font-medium">安全设置</h3>
             
             {/* Approval Policy */}
             <div className="space-y-2">
-              <label className="text-sm font-medium">Approval Policy</label>
+              <label className="text-sm font-medium">审批策略</label>
               <div className="grid grid-cols-2 gap-2">
                 {[
-                  { value: 'untrusted', label: 'Untrusted' },
-                  { value: 'on-failure', label: 'On Failure' },
-                  { value: 'on-request', label: 'On Request' },
-                  { value: 'never', label: 'Never' },
+                  { value: 'untrusted', label: '不信任' },
+                  { value: 'on-failure', label: '失败时' },
+                  { value: 'on-request', label: '按需' },
+                  { value: 'never', label: '从不' },
                 ].map((policy) => (
                   <Button
                     key={policy.value}
@@ -125,14 +125,14 @@ export const ConfigDialog: React.FC<ConfigDialogProps> = ({
 
           {/* Custom Arguments */}
           <div className="space-y-2">
-            <label className="text-sm font-medium">Custom Arguments (Advanced)</label>
+            <label className="text-sm font-medium">自定义参数（高级）</label>
             <Input
               value={localConfig.customArgs?.join(' ') || ''}
               onChange={(e) => updateConfig('customArgs', e.target.value.split(' ').filter(arg => arg.trim()))}
               placeholder="--config foo=bar --profile dev"
             />
             <p className="text-xs text-gray-500">
-              Additional command-line arguments for codex
+              传递给 codex 的其他命令行参数
             </p>
           </div>
         </div>
@@ -140,14 +140,14 @@ export const ConfigDialog: React.FC<ConfigDialogProps> = ({
         {/* Footer */}
         <div className="flex items-center justify-between pt-6 border-t">
           <Button variant="outline" onClick={handleReset}>
-            Reset to Defaults
+            重置为默认
           </Button>
           <div className="flex gap-2">
             <Button variant="outline" onClick={onClose}>
-              Cancel
+              取消
             </Button>
             <Button onClick={handleSave}>
-              Save Configuration
+              保存配置
             </Button>
           </div>
         </div>

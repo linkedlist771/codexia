@@ -67,7 +67,7 @@ export const MessageFooter = ({
           <button
             onClick={onEdit}
             className="p-1 hover:bg-accent rounded transition-colors"
-            title="Edit and resend from here"
+            title="编辑此消息并从这里重新发送"
           >
             <Pencil className="w-4 h-4 text-muted-foreground" />
           </button>
@@ -76,7 +76,7 @@ export const MessageFooter = ({
           <button
             onClick={onFork}
             className="p-1 hover:bg-accent rounded transition-colors"
-            title="Fork from this message"
+            title="从此消息分叉新会话"
           >
             <GitFork className="w-4 h-4 text-muted-foreground" />
           </button>
@@ -84,7 +84,7 @@ export const MessageFooter = ({
         <button
           onClick={handleCopy}
           className="p-1 hover:bg-accent rounded transition-colors"
-          title={copied ? "Copied!" : "Copy message"}
+          title={copied ? "已复制！" : "复制消息"}
         >
           {copied ? (
             <Check className="w-4 h-4 text-green-600" />

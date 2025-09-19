@@ -133,7 +133,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({
           value={inputValue}
           onChange={(e) => onInputChange(e.target.value)}
           onKeyDown={handleKeyPress}
-          placeholder={placeholderOverride || `Ask ${windowTitle == 'Codexia' ? "Codex" : windowTitle} to do anything`}
+          placeholder={placeholderOverride || `向${windowTitle == 'Codexia' ? "Codex" : windowTitle} 提问，或让它帮你做事`}
           className={`min-h-20 max-h-96 pr-32 bg-muted/50 resize-none overflow-y-auto pb-8 ${
             (fileReferences.length > 0 || mediaAttachments.length > 0) ? 'pt-8' : ''
           }`}
@@ -159,11 +159,11 @@ export const ChatInput: React.FC<ChatInputProps> = ({
             size="sm"
             className={`h-6 px-1 py-0 hover:bg-muted/50 ${config.webSearchEnabled ? 'text-blue-500' : 'text-muted-foreground'}`}
             onClick={() => updateConfig({ webSearchEnabled: !config.webSearchEnabled })}
-            title={config.webSearchEnabled ? 'Web search enabled' : 'Enable web search'}
+            title={config.webSearchEnabled ? '已启用网页搜索' : '启用网页搜索'}
           >
             <Globe className="h-4 w-4" />
             {config.webSearchEnabled && (
-              <span className="ml-1 text-xs">search</span>
+              <span className="ml-1 text-xs">搜索</span>
             )}
           </Button>
         </div>

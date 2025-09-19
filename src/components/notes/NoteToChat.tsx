@@ -39,7 +39,7 @@ export const NoteToChat: React.FC<NoteToChatProps> = ({
           </Button>
         </TooltipTrigger>
         <TooltipContent>
-          <p>Add to chat input</p>
+          <p>添加到聊天输入框</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

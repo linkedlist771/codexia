@@ -68,7 +68,7 @@ export function StatusBar({
           {isTaskRunning && (
             <div className="flex items-center gap-1 text-blue-600 dark:text-blue-400">
               <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-              <span>AI Working</span>
+              <span>AI 正在工作</span>
             </div>
           )}
         </div>

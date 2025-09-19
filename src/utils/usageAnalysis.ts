@@ -224,7 +224,7 @@ export async function parseSessionFile(filePath: string): Promise<SessionMetrics
         const pathParts = filePath.split('/');
         if (pathParts.length > 1) {
           // Try to get a meaningful project name from the path or use generic name
-          projectPath = 'Unknown Session';
+        projectPath = '未知会话';
         }
       }
     }
@@ -234,7 +234,7 @@ export async function parseSessionFile(filePath: string): Promise<SessionMetrics
     return {
       sessionId: sessionData.id,
       timestamp: new Date(sessionData.timestamp),
-      projectPath: projectPath || 'Unknown Project',
+      projectPath: projectPath || '未知项目',
       model,
       inputTokens: totalInputTokens,
       outputTokens: totalOutputTokens,

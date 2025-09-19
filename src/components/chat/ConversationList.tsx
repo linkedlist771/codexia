@@ -30,17 +30,13 @@ export function ConversationList({
       <div className="p-4 text-center text-muted-foreground text-sm">
         {isFav ? (
           <>
-            <p>No favorite conversations</p>
-            <p className="text-xs mt-1">
-              Star some conversations to see them here
-            </p>
+            <p>暂无收藏的会话</p>
+            <p className="text-xs mt-1">给会话加星即可在此处看到</p>
           </>
         ) : (
           <>
-            <p>No conversations yet</p>
-            <p className="text-xs mt-1">
-              Create your first conversation to get started
-            </p>
+            <p>暂时还没有会话</p>
+            <p className="text-xs mt-1">创建你的第一个会话开始使用吧</p>
           </>
         )}
       </div>

@@ -51,6 +51,8 @@ impl CommandBuilder {
             config.provider,
             config.api_key.as_ref().map_or(false, |k| !k.is_empty())
         );
+        log::debug!("Config: {:?}", config);
+        // log::debug!("Pro
 
         if let Some(api_key) = &config.api_key {
             if !api_key.is_empty() {
@@ -88,6 +90,7 @@ impl CommandBuilder {
                     let env_var_name = match config.provider.as_str() {
                         "gemini" => "GEMINI_API_KEY",
                         "openai" => "OPENAI_API_KEY",
+                        "codex" => "CODEX_API_KEY",
                         "openrouter" => "OPENROUTER_API_KEY",
                         "ollama" => "OLLAMA_API_KEY",
                         _ => "OPENAI_API_KEY", // fallback
@@ -180,6 +183,9 @@ impl CommandBuilder {
     }
 
     async fn configure_provider(cmd: &mut Command, config: &CodexConfig) -> Result<()> {
+        // check the config
+        log::debug!("Config: {:?}", config);
+        
         // Handle provider configuration
         if !config.provider.is_empty() && config.provider != "openai" {
             // Special case for ollama - use model_provider=oss config instead of --oss flag
@@ -194,7 +200,9 @@ impl CommandBuilder {
             } else {
                 // For all other providers, try to load from config.toml first
                 if let Ok(providers) = read_model_providers().await {
+                    log::info!("Providers: {:?}", providers);
                     if let Ok(_profiles) = read_profiles().await {
+                        log::info!("Profiles: {:?}", _profiles);
                         // Check if there's a matching provider in config (try exact match first, then lowercase)
                         let _provider_config = providers
                             .get(&config.provider)
@@ -256,6 +264,10 @@ impl CommandBuilder {
         }
         cmd.arg("-c")
             .arg(format!("model_reasoning_summary={}", "auto"));
+
+            cmd.arg("-c")
+            .arg(format!("base_url={}", "https://cc.585dg.com/codex/v1".to_string()));
+
 
         Ok(())
     }
